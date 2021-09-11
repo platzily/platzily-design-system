@@ -1,0 +1,39 @@
+{
+    "name": "platzily-ui",
+    "version": "0.1.0",
+    "description": "UI componentes based on Platzily design system",
+    "main": "src/index.js",
+    "scripts": {
+      "build": "",
+      "dev": "",
+      "start": "",
+      "test": ""
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/platzily/platzily-ui.git"
+    },
+    "keywords": [
+      "Platzi Master",
+      "react.js",
+      "design system"
+    ],
+    "author": "Platzily",
+    "contributors": [
+      {
+        "name": "Omar Flores",
+        "github": "https://github.com/omarefg"
+      },
+      {
+        "name": "Octavio Cuellar",
+        "github": "https://github.com/octaviocvargas"
+      }
+    ],
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/platzily/platzily-ui/issues"
+    },
+    "homepage": "https://github.com/platzily/platzily-ui#readme",
+    "dependencies": {},
+    "devDependencies": {}
+  }
