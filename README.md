@@ -1,1 +1,1 @@
-# platzily-design-system
+# platzily-ui
