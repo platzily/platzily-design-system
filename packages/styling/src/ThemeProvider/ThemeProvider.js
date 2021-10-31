@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import defaultTheme from '../theme';
 import ThemeContext from '../useTheme/ThemeContext';
 
 /**
@@ -10,10 +9,9 @@ import ThemeContext from '../useTheme/ThemeContext';
  */
 export default function ThemeProvider(props) {
   const { children, theme } = props;
-  const definitiveTheme = { ...{ defaultTheme }, ...theme };
 
   return (
-    <ThemeContext.Provider value={definitiveTheme}>
+    <ThemeContext.Provider value={theme}>
       {children}
     </ThemeContext.Provider>
   );
