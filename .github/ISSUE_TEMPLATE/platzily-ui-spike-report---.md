@@ -1,14 +1,9 @@
 ---
-
-name: "Platzily UI Spike \U00022F41B"
-
+name: "Platzily UI Spike \U0001F50D"
 about: Create a Spike for Platzily UI.
-
-title: 'Spike - '
-
+title: Spike - 
 labels: spike
-
-assignees: '' "
+assignees: " "
 
 ---
 
@@ -17,11 +12,8 @@ assignees: '' "
 ##  Checklist ✅
 
 <!--
-
 Thank you very much for contributing to Platzily UI by creating an issue!
-
 To avoid duplicate issues we ask you to check off the following list.
-
 -->
 
 <!-- Checked checkbox should look like this: [x] -->
