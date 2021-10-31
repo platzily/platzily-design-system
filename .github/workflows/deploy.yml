@@ -3,7 +3,7 @@ name: Docs deploy
 on:
   push:
     branches:
-      - feature-3
+      - main
 jobs:
   deploy:
     runs-on: ubuntu-latest
