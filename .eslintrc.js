@@ -72,6 +72,7 @@ module.exports = {
     'react/sort-prop-types': 'error',
     'react/state-in-constructor': 'off',
     'react/static-property-placement': 'off',
+    'react/react-in-jsx-scope': 'off'
   },
   settings: {
     'import/resolver': {
