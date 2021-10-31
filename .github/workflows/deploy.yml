@@ -3,27 +3,24 @@ name: Docs deploy
 on:
   push:
     branches:
-      - main
+      - feature-3
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v2
-      - name: Use Node.js 14.x
-        uses: actions/setup-node
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
         with:
-          node-version: "14.x"
+          node-version: '14.x'
 
-      - name: Installing packages
-        run: yarn install --frozen-lockfile
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile && cd packages/docs && npx lerna bootstrap
 
-      - name: Build my App
-        run: yarn build && touch ./out/.nojekyll
+      - name: Build docs
+        run: cd packages/docs && yarn build && touch ./out/.nojekyll
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action
         with:
           branch: gh-pages
-          folder: out
+          folder: packages/docs/out
