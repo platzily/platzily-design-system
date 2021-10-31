@@ -1,7 +1,9 @@
-import { css } from '@emotion/react';
+import createEmotion from '@emotion/css/create-instance';
 import useTheme from '../useTheme/useTheme';
 
-export default function createStyleSheet(styles) {
+
+export default function createStyleSheet(styles, { key } = {}) {
+  const { css, cx } = createEmotion({ key: key ? key.toLowerCase() : 'platzily-ui' });
   const getStyles = typeof styles === 'function' ? styles : () => styles;
 
   function useStyleSheet(props) {
@@ -9,11 +11,17 @@ export default function createStyleSheet(styles) {
 
     const stylesheet = getStyles(theme, props);
 
-    const classes = Object.fromEntries(Object.keys(stylesheet).map((ruleName) => [ruleName, css(stylesheet[ruleName])]));
+    const classes = {};
+
+
+    Object.keys(stylesheet).forEach((className) => {
+      classes[className] = css(stylesheet[className]);
+    });
 
     return {
       classes,
       theme,
+      cx
     };
   }
 

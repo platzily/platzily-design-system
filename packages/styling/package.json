@@ -3,7 +3,30 @@
   "version": "0.1.0",
   "private": false,
   "description": "Platzily UI styling API",
-  "main": "./src/index.ts",
+  "main": "./dist/index",
+  "author": "Platzily UI Team",
+  "contributors": [
+    {
+      "name": "Omar Flores",
+      "github": "https://github.com/omarefg"
+    },
+    {
+      "name": "Octavio Cuellar",
+      "github": "https://github.com/octaviocvargas"
+    },
+    {
+      "name": "Kevin Farid",
+      "github": "https://github.com/kevfarid"
+    },
+    {
+      "name": "Daniel Valdivieso",
+      "github": "https://github.com/danielvaldivv"
+    },
+    {
+      "name": "Felipe Duitama",
+      "github": "https://github.com/felipedc09"
+    }
+  ],
   "keywords": [
     "platzi master",
     "react",
@@ -23,18 +46,16 @@
     "url": "https://github.com/platzily/platzily-ui/issues"
   },
   "homepage": "https://github.com/platzily/platzily-ui#readme",
-  "scripts": {},
+  "scripts": {
+    "build": "NODE_ENV=production && rm -rf ./dist && mkdir dist && npx babel --config-file ../../babel.config src/ --out-dir dist --copy-files"
+  },
   "peerDependencies": {
-    "@emotion/react": "11.5.0",
-    "@emotion/styled": "11.3.0",
+    "@emotion/css": "11.5.0",
     "@types/react": "17.0.33",
     "react": "17.0.2"
   },
   "peerDependenciesMeta": {
-    "@emotion/react": {
-      "optional": true
-    },
-    "@emotion/styled": {
+    "@emotion/css": {
       "optional": true
     },
     "@types/react": {

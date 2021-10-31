@@ -24,4 +24,4 @@ export default function createStyleSheet<
   T = Theme,
   Props extends object = {},
   ClassKey extends string = string
->(styles: Styles<T, Props, ClassKey>): keyof Props extends never ? (props?: any) => ClassNameMap<ClassKey> : (props: Props) => ClassNameMap<ClassKey>;
+>(styles: Styles<T, Props, ClassKey>, config?: { key?: string }): keyof Props extends never ? (props?: any) => ClassNameMap<ClassKey> : (props: Props) => ClassNameMap<ClassKey>;
