@@ -1,0 +1,58 @@
+{
+  "name": "@platzily-ui/docs",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Documentation of UI componentes based on Platzily design system",
+  "author": "Platzily UI Team",
+  "contributors": [
+    {
+      "name": "Omar Flores",
+      "github": "https://github.com/omarefg"
+    },
+    {
+      "name": "Octavio Cuellar",
+      "github": "https://github.com/octaviocvargas"
+    },
+    {
+      "name": "Kevin Farid",
+      "github": "https://github.com/kevfarid"
+    },
+    {
+      "name": "Daniel Valdivieso",
+      "github": "https://github.com/danielvaldivv"
+    },
+    {
+      "name": "Felipe Duitama",
+      "github": "https://github.com/felipedc09"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/platzily/platzily-ui.git",
+    "directory": "packages/docs"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/platzily/platzily-ui/issues"
+  },
+  "homepage": "https://github.com/platzily/platzily-ui#readme",
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev",
+    "start": "next start",
+    "export": "next export"
+  },
+  "dependencies": {
+    "@platzily-ui/styling": "0.1.0",
+    "next": "12.0.2",
+    "nextra": "1.1.0",
+    "nextra-theme-docs": "1.2.6",
+    "react-dom": "17.0.2"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "devDependencies": {
+    "eslint-plugin-mdx": "1.16.0"
+  }
+}
