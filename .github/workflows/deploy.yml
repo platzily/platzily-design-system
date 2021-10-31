@@ -1,0 +1,29 @@
+name: Docs deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout
+      - name: Use Node.js 14.x
+        uses: actions/setup-node
+        with:
+          node-version: "14.x"
+
+      - name: Installing packages
+        run: yarn install --frozen-lockfile
+
+      - name: Build my App
+        run: yarn build && touch ./out/.nojekyll
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action
+        with:
+          branch: gh-pages
+          folder: out
