@@ -37,10 +37,8 @@
   },
   "homepage": "https://github.com/platzily/platzily-ui#readme",
   "scripts": {
-    "build": "next build",
-    "dev": "next dev",
-    "start": "next start",
-    "export": "next export"
+    "build": "next build && next export",
+    "start": "next dev"
   },
   "dependencies": {
     "@platzily-ui/styling": "0.1.0",
