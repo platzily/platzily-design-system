@@ -1,4 +1,5 @@
-import { DefaultStyledBox, UseThemeStyledBox, CustomThemeStyledBox } from '../components/styling/index'
+import { DefaultStyledBox, UseThemeStyledBox, CustomThemeStyledBox, CombinedThemesStyledBox } from '../components/styling/index'
+import { Warning } from '../components/format/index'
 
 # Platzily UI Styling API
 
@@ -304,3 +305,78 @@ It will look like this
 
 <CustomThemeStyledBox/>
 
+## Theme composition
+
+The ThemeProvider is meant to be used at the root of the app, but more ThemeProviders can be added nested in the dom tree.
+
+You could use something like this.
+
+```jsx
+import { ThemeProvider } from '@platzily-ui/styling';
+import App from './App';
+import theme from './theme';
+import otherTheme from './otherTheme';
+
+export default function Root() {
+  return (
+    <ThemeProvider theme={theme}>
+      <App>
+        <StyledBox/>
+        <ThemeProvider theme={otherTheme}>
+          <StyledBox/>
+        </ThemeProvider>
+      </App>
+    </ThemeProvider>
+  );
+}
+```
+
+`theme` have a default configuration but `otherTheme` has a differente `palette.primary.main` color. The resulting of the code above will be this:
+
+<CombinedThemesStyledBox/>
+
+## Function as a theme
+
+If you decide to use an approach as the showed above you could pass a function as a theme in the inner ThemeProvider
+
+<Warning>
+  Never pass the theme as a function in the higher ThemeProvider, it will not work
+</Warning>
+
+You could do it this way
+
+```jsx
+import { ThemeProvider } from '@platzily-ui/styling';
+import App from './App';
+import theme from './theme';
+
+export default function Root() {
+  return (
+    <ThemeProvider theme={theme}>
+      <App>
+        <StyledBox/>
+        <ThemeProvider
+          theme={(outerTheme) => ({
+            ...outerTheme,
+            palette: {
+              ...outherTheme.palette,
+              primary: {
+                ...outherTheme.palette.primary,
+                main: 'rebeccapurple'
+              }
+            }
+          })}
+        >
+          <StyledBox/>
+        </ThemeProvider>
+      </App>
+    </ThemeProvider>
+  );
+}
+```
+
+Note how the outer theme which is the theme passed to the higher ThemeProvider is received as a param in the function.
+
+The code above will result in this:
+
+<CombinedThemesStyledBox/>
