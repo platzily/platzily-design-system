@@ -4,7 +4,7 @@ const useStyleSheet = createStyleSheet((theme, props) => {
   return {
     root: {
       display: 'flex',
-      justifyContent: 'center'
+      justifyContent: 'center',
     },
     box: {
       backgroundColor: props.color || theme.palette.primary.main,
