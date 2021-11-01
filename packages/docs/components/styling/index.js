@@ -28,3 +28,15 @@ export function CustomThemeStyledBox() {
     </ThemeProvider>
   );
 }
+
+export function CombinedThemesStyledBox() {
+  return (
+    <ThemeProvider theme={defaultTheme}>
+      <DefaultStyledBoxComponent/>
+      <br/>
+      <ThemeProvider theme={customTheme}>
+        <DefaultStyledBoxComponent/>
+      </ThemeProvider>
+    </ThemeProvider>
+  );
+}
