@@ -1,2 +1,2 @@
-export { default as createTheme } from './createTheme';
+export { default } from './createTheme';
 export * from './createTheme';

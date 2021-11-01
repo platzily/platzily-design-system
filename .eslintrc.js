@@ -5,7 +5,8 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
-    node: true
+    node: true,
+    'jest/globals': true
   },
   extends: [
     'plugin:react/recommended',
@@ -21,6 +22,8 @@ module.exports = {
   plugins: [
     'react',
     '@typescript-eslint',
+    'jest',
+    'testing-library'
   ],
   rules: {
     '@typescript-eslint/dot-notation': 'off',
@@ -72,7 +75,7 @@ module.exports = {
     'react/sort-prop-types': 'error',
     'react/state-in-constructor': 'off',
     'react/static-property-placement': 'off',
-    'react/react-in-jsx-scope': 'off'
+    'react/react-in-jsx-scope': 'off',
   },
   settings: {
     'import/resolver': {
@@ -87,6 +90,14 @@ module.exports = {
       rules: {
         'import/export': 'off',
       },
+    },
+    {
+      'files': ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
+      'extends': ['plugin:testing-library/react'],
+      rules: {
+        'testing-library/prefer-screen-queries': 'off',
+        'testing-library/no-node-access': 'off'
+      }
     },
   ]
 };

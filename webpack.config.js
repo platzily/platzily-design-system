@@ -6,7 +6,7 @@ module.exports = {
     modules: [__dirname, 'node_modules'],
     alias: {
       '@platzily-ui/styling': path.resolve(__dirname, './packages/styling/src'),
-      '@': path.resolve(__dirname, './src'),
+      '@platzily-ui/utils': path.resolve(__dirname, './packages/utils/src'),
     },
     extensions: ['.js', '.ts', '.tsx', '.d.ts'],
   },

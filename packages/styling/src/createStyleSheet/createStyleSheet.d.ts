@@ -14,14 +14,30 @@ export interface CSSProperties extends BaseCSSProperties {
 
 export type StyleRule<ClassKey extends string = string> = Record<ClassKey, CSSProperties>;
 
-export type StyleRulesCallback<T, Props extends object, ClassKey extends string = string> = (theme: T, props: Props) => StyleRule<ClassKey>;
+export type StyleRulesCallback<T, Props extends object, ClassKey extends string = string> = (
+  theme: T,
+  props: Props
+) => StyleRule<ClassKey>;
 
-export type Styles<T, Props extends object, ClassKey extends string = string> = StyleRulesCallback<T, Props, ClassKey> | StyleRule<ClassKey>;
+export type Styles<T, Props extends object, ClassKey extends string = string> =
+  | StyleRulesCallback<T, Props, ClassKey>
+  | StyleRule<ClassKey>;
 
 export type ClassNameMap<ClassKey extends string = string> = Record<ClassKey, string>;
+
+type StyleSheet<T, Classes> = {
+  classes: Classes;
+  theme: T;
+  cx: () => string;
+};
 
 export default function createStyleSheet<
   T = Theme,
   Props extends object = {},
   ClassKey extends string = string
->(styles: Styles<T, Props, ClassKey>, config?: { key?: string }): keyof Props extends never ? (props?: any) => ClassNameMap<ClassKey> : (props: Props) => ClassNameMap<ClassKey>;
+>(
+  styles: Styles<T, Props, ClassKey>,
+  config?: { key?: string }
+): keyof Props extends never
+  ? (props?: any) => StyleSheet<Theme, ClassNameMap<ClassKey>>
+  : (props: Props) => StyleSheet<Theme, ClassNameMap<ClassKey>>;
