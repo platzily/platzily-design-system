@@ -25,7 +25,7 @@ module.exports = {
         'object-curly-spacing': ['error', 'always'],
         'no-undef': 'error',
         'no-unused-vars': ['error', { args: 'all' }],
-        '@typescript-eslint/naming-convention': 'off'
+        '@typescript-eslint/naming-convention': 'off',
         '@typescript-eslint/no-unused-vars': 'off'
       },
     }

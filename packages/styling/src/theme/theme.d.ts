@@ -1,3 +1,21 @@
 export interface Theme {
-  palette: Record<string, any>;
+  palette: {
+    primary: {
+      main: string,
+    },
+    secondary: {
+      main: string,
+    },
+    tertiary: {
+      main: string,
+    },
+    text: {
+      main: string,
+      light: string,
+    },
+    grey: {},
+    backround: {
+      main: string,
+    },
+  },
 }
