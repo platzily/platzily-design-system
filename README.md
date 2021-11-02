@@ -41,6 +41,9 @@ TO-DO, in this section will be a link to the design system documentation.
 
 * [Octavio Cuellar](https://github.com/octaviocvargas)
 * [Omar Flores](https://github.com/omarefg)
+* [Kevin Farid](https://github.com/KevFarid)
+* [Daniel Valdivieso](https://github.com/danielvaldivv)
+* [Felipe Duitama](https://github.com/felipedc09)
 
 ## Contributing
 
