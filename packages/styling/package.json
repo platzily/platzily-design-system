@@ -1,6 +1,6 @@
 {
   "name": "@platzily-ui/styling",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": false,
   "description": "Platzily UI styling API",
   "main": "./dist/index",
@@ -50,9 +50,10 @@
     "build": "NODE_ENV=production && rm -rf ./dist && mkdir dist && npx babel --config-file ../../babel.config src/ --out-dir dist --copy-files"
   },
   "peerDependencies": {
-    "@emotion/css": "11.5.0",
-    "@types/react": "17.0.33",
-    "react": "17.0.2"
+    "@emotion/css": ">=10.0.0",
+    "@types/react": ">=16.8.0",
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
   },
   "peerDependenciesMeta": {
     "@emotion/css": {
@@ -64,7 +65,8 @@
   },
   "dependencies": {
     "@platzily-ui/utils": "0.1.0",
-    "csstype": "3.0.9"
+    "csstype": "3.0.9",
+    "props-types": ">=15.7.2"
   },
   "publishConfig": {
     "access": "public"
