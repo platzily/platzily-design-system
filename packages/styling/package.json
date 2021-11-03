@@ -65,7 +65,7 @@
   "dependencies": {
     "@platzily-ui/utils": "0.1.0",
     "csstype": "3.0.9",
-    "props-types": "15.7.2"
+    "prop-types": "15.7.2"
   },
   "publishConfig": {
     "access": "public"
