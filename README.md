@@ -45,6 +45,7 @@ TO-DO, in this section will be a link to the design system documentation.
 * [Daniel Valdivieso](https://github.com/danielvaldivv)
 * [Felipe Duitama](https://github.com/felipedc09)
 
+
 ## Contributing
 
 Thank you for being here, we're really happy you decided to contribute to the project.
@@ -56,5 +57,6 @@ Before you contribute to the project please make sure to read all items below.
 
 
 ### License
+
 
 Platzily UI is [MIT licensed](./LICENSE).
