@@ -16,6 +16,10 @@
     "paths": {
       "@platzily-ui/styling": ["./packages/styling/src"],
       "@platzily-ui/styling/*": ["./packages/styling/src/*"],
+      "@platzily-ui/utils": ["./packages/utils/src"],
+      "@platzily-ui/utils/*": ["./packages/utils/src/*"],
+      "@platzily-ui/icons": ["./packages/icons/src"],
+      "@platzily-ui/icons/*": ["./packages/icons/src/*"],
     }
   },
   "exclude": ["node_modules"]
