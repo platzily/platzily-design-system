@@ -8,5 +8,6 @@ module.exports = {
     '@platzily-ui/styling/*': '<rootDir>/packages/styling/$1',
     '@platzily-ui/utils': '<rootDir>/packages/utils',
     '@platzily-ui/utils/*': '<rootDir>/packages/utils/$1',
-  }
+  },
+  modulePathIgnorePatterns: ['dist']
 };
