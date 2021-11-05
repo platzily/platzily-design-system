@@ -1,10 +1,6 @@
 import { forwardRef } from 'react';
-import { createStyleSheet } from '@platzily-ui/styling';
+import { createStyleSheet, alpha as convertRgba } from '@platzily-ui/styling';
 import { cx } from '@emotion/css';
-
-const convertRgba = (color, alpha) => {
-  return `rgba(${color}, ${color}, ${color}, ${alpha})`;
-};
 
 const selectClass = (props) => {
   return props.mode === 'secondary' ? 'secondaryButton' : 'primaryButton';
@@ -14,7 +10,7 @@ const useStyleSheet = createStyleSheet(
   (theme, props) => {
     return {
       primaryButton: {
-        backgroundColor: props.color || theme.palette.tertiary.main,
+        backgroundColor: props.color || theme.palette.secondary.main,
         borderRadius: '5px',
         width: '210px',
         height: '40px',
@@ -23,20 +19,21 @@ const useStyleSheet = createStyleSheet(
         fontSize: '20px',
         color: theme.palette.primary.main,
         '&:hover': {
-          color: '#FFFFFF',
-          backgroundColor: convertRgba(props.color || theme.palette.tertiary.main, 0.6)
+          color: theme.palette.text.light,
+          backgroundColor: convertRgba(props.color || theme.palette.secondary.main, 0.6)
         },
         '&:focus': {
-          backgroundColor: convertRgba(props.color || theme.palette.tertiary.main, 0.6)
+          backgroundColor: convertRgba(props.color || theme.palette.secondary.main, 0.6)
         },
         '&:disabled': {
-          backgroundColor: '#C4C4C4',
-          color: '#707070',
+          backgroundColor: theme.palette.text.disabled,
+          color: theme.palette.text.secondary,
           PointerEvents: 'none',
+          cursor: 'default'
         },
       },
       secondaryButton: {
-        backgroundColor: '',
+        backgroundColor: 'transparent',
         borderRadius: '5px',
         border: '1.5px solid',
         borderColor: props.color || theme.palette.primary.main,
@@ -47,17 +44,18 @@ const useStyleSheet = createStyleSheet(
         fontSize: '20px',
         color: props.color || theme.palette.primary.main,
         '&:hover': {
-          backgroundColor: convertRgba(theme.palette.tertiary.main, 0.6),
+          backgroundColor: convertRgba(theme.palette.secondary.main, 0.6),
         },
         '&:focus': {
-          backgroundColor: '#ffffff',
-          borderColor: theme.palette.tertiary.main,
+          backgroundColor: theme.palette.text.light,
+          borderColor: theme.palette.secondary.main,
         },
         '&:disabled': {
           PointerEvents: 'none',
-          backgroundColor: '#ffffff',
-          color: '#C4C4C4',
-          borderColor: '#C4C4C4',
+          backgroundColor: 'transparent',
+          color: theme.palette.text.disabled,
+          borderColor: theme.palette.text.disabled,
+          cursor: 'default'
         },
       },
     };

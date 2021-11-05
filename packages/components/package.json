@@ -65,7 +65,7 @@
     }
   },
   "dependencies": {
-    "@platzily-ui/styling": "0.1.1",
+    "@platzily-ui/styling": "0.1.2",
     "prop-types": "15.7.2",
     "react": "17.0.2",
     "react-dom": "17.0.2"

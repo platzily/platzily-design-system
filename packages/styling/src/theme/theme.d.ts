@@ -20,9 +20,9 @@ export interface Theme {
     };
     text: {
       main: string,
-      secondaty: string,
+      secondary: string,
       light: string
-      disable: string
+      disabled: string
     }
   };
 }
