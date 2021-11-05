@@ -3,7 +3,7 @@ import { createStyleSheet, alpha as convertRgba } from '@platzily-ui/styling';
 import { cx } from '@emotion/css';
 
 const selectClass = (props) => {
-  return props.mode === 'secondary' ? 'secondaryButton' : 'primaryButton';
+  return props.variant === 'secondary' ? 'secondaryButton' : 'primaryButton';
 };
 
 const useStyleSheet = createStyleSheet(

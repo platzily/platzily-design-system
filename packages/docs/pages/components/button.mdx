@@ -1,5 +1,60 @@
-# Bottons
-
 import Button from '../../components/Button/Button'
 
-<Button />
+# Bottons
+
+Buttons allow users to take actions, and make choices, with a single tap.
+
+## Basic Buttons
+
+The `button` has two variants: `Primary` and `Secondary`.
+
+<div style={{ display: 'grid', gridTemplateColumns: 'auto auto', justifyContent: 'center' }}>
+<Button>Primary</Button>
+<Button variant="secondary">Secondary</Button>
+</div>
+
+### Primary Button
+`Pramry Button` are high-emphasis, is used to actions primary of you app.
+
+```jsx
+import { Button } from '@platzily-ui/components'
+import { Fragment } from 'react'
+
+const MyComponent = () => {
+  return(
+    <Fragment>
+      <Button>Normal</Button>
+      <Button disabled>Disabled</Button>
+    </Fragment>
+  )
+}
+```
+
+<div style={{ display: 'grid', gridTemplateColumns: 'auto auto', justifyContent: 'center' }}>
+<Button>Normal</Button>
+<Button disabled>Disabled</Button>
+</div>
+
+### Secondary Button
+
+`Secondary Button` are medium-emphasis, is used to actions secondary of you app.
+
+```jsx
+import { Button } from '@platzily-ui/components'
+import { Fragment } from 'react'
+
+const MyComponent = () => {
+  return(
+    <Fragment>
+      <Button variant='secondary'>Normal</Button>
+      <Button variant='secondary' disabled>Disabled</Button>
+    </Fragment>
+  )
+}
+```
+
+<div style={{ display: 'grid', gridTemplateColumns: 'auto auto', justifyContent: 'center' }}>
+<Button variant='secondary'>Normal</Button>
+<Button variant='secondary' disabled>Disabled</Button>
+</div>
+
