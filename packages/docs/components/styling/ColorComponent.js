@@ -1,6 +1,6 @@
 import { useTheme } from '@platzily-ui/styling';
 
-export default function UseColor(props) {
+export default function ColorComponent(props) {
   const theme = useTheme();
 
   const boxStyle = {

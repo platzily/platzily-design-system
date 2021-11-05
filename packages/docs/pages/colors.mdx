@@ -2,7 +2,7 @@ import { Color, DefaultStyledBox } from '../components/styling/index';
 
 # Colors
 
-You can using different colors by default or could change it with [`createTheme`](http://localhost:3000/platzily-ui/styling). Many of components get the value of one color. Read well the documentation of the components!
+You can using different colors by default or could change it with [`createTheme`](/platzily-ui/styling). The components could paint themselves depending on the colors.
 
 <br />
 
@@ -46,9 +46,11 @@ The code above will result in:
 
 ## Color Manipulator
 
-If you need to add alpha to the colors or need have convert hexcolor to rgbcolor, You could use the Color Manipulator of Stylign.
+If you need to add alpha to the colors, You could use the Color Manipulator of Stylign.
 
-### Add alpha to the colors.
+### Alpha
+
+The function Alpha convert of rgb to rgba, adding a channel alpha to color
 
 ```jsx
 import { alpha } from '@platzily-ui/styling'
@@ -68,47 +70,3 @@ The code above will result in:
 <div style={{opacity: 0.6}}>
 <DefaultStyledBox color="#19213c"/>
 </div>
-
-### Convert hexcolor to rgbcolor
-
-```jsx
-import { hexToRgb } from '@platzily-ui/styling'
-
-const myFunction = (hexcolor: '#19213c') => {
-  const rgbColor = hexToRgb(hexcolor: '#19213c') // return rgb(25, 33, 60)
-  if(rgbColor.equals('25')) return true
-}
-```
-
-### Convert rgbcolor to hexcolor
-
-```jsx
-import { rgbtoHex } from '@platzily-ui/styling'
-
-const myFunction = (rgbcolor: 'rgb(25, 33, 60)') => {
-  const hexcolor = rgbtoHex(rgbcolor: 'rgb(25, 33, 60)') // return '#19213c'
-  if(hexcolor.lenght === 3) return true
-}
-```
-
-### Decompose Color
-
-```jsx
-import { decomposeColor } from '@platzily-ui/styling'
-
-const myFunction = (rgbcolor: 'rgb(25, 33, 60)') => {
-  const decompose = decomposeColor(rgbcolor: 'rgb(25, 33, 60)') // return {type: 'rgb', values: [25, 33, 60], colorSpace: ''}
-  if(decompose.type === 'rgb') return true
-}
-```
-
-### Recompose Color
-
-```jsx
-import { recomposeColor } from '@platzily-ui/styling'
-
-const myFunction = (decompose: { type: 'rgb', values: [25, 33, 60], colorSpace: '' }) => {
-  const decompose = recomposeColor(decompose) // 'rgb(25, 33, 60)'
-  if(decompose.type === 'rgb') return decompose
-}
-```

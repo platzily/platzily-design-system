@@ -2,7 +2,7 @@ import { ThemeProvider } from '@platzily-ui/styling';
 
 import DefaultStyledBoxComponent from './DefaultStyledBox';
 import UseThemeStyledBoxComponent from './UseThemeStyledBox';
-import UseColor from './UseColor';
+import ColorComponent from './ColorComponent';
 
 import { defaultTheme, customTheme } from './theme';
 
@@ -45,7 +45,7 @@ export function CombinedThemesStyledBox() {
 export function Color({ color, colorType }) {
   return (
     <ThemeProvider theme={defaultTheme}>
-      <UseColor color={color} colorType={colorType} />
+      <ColorComponent color={color} colorType={colorType} />
     </ThemeProvider>
   );
 }

@@ -8,7 +8,7 @@
 function clamp(value, min = 0, max = 1) {
   if (process.env.NODE_ENV !== 'production') {
     if (value < min || value > max) {
-      console.error(`MUI: The value provided ${value} is out of range [${min}, ${max}].`);
+      console.error(`The value provided ${value} is out of range [${min}, ${max}].`);
     }
   }
 
@@ -20,7 +20,7 @@ function clamp(value, min = 0, max = 1) {
  * @param {string} color - Hex color, i.e. #nnn or #nnnnnn
  * @returns {string} A CSS rgb color string
  */
-export function hexToRgb(color) {
+function hexToRgb(color) {
   color = color.substr(1);
 
   const re = new RegExp(`.{1,${color.length >= 6 ? 2 : 1}}`, 'g');
@@ -38,19 +38,14 @@ export function hexToRgb(color) {
       .join(', ')})` : '';
 }
 
-function intToHex(int) {
-  const hex = int.toString(16);
-  return hex.length === 1 ? `0${hex}` : hex;
-}
-
 /**
  * Returns an object with the type and values of a color.
  *
  * Note: Does not support rgb % values.
  * @param {string} color - CSS color, i.e. one of: #nnn, #nnnnnn, rgb(), rgba(), hsl(), hsla()
- * @returns {object} - A MUI color object: {type: string, values: number[]}
+ * @returns {object} - {type: string, values: number[]}
  */
-export function decomposeColor(color) {
+function decomposeColor(color) {
   // Idempotent
   if (color.type) {
     return color;
@@ -94,7 +89,7 @@ export function decomposeColor(color) {
  * @param {array} color.values - [n,n,n] or [n,n,n,n]
  * @returns {string} A CSS color string
  */
-export function recomposeColor(color) {
+function recomposeColor(color) {
   const { type, colorSpace } = color;
   let { values } = color;
 
@@ -112,21 +107,6 @@ export function recomposeColor(color) {
   }
 
   return `${type}(${values})`;
-}
-
-/**
- * Converts a color from CSS rgb format to CSS hex format.
- * @param {string} color - RGB color, i.e. rgb(n, n, n)
- * @returns {string} A CSS rgb color string, i.e. #nnnnnn
- */
-export function rgbToHex(color) {
-  // Idempotent
-  if (color.indexOf('#') === 0) {
-    return color;
-  }
-
-  const { values } = decomposeColor(color);
-  return `#${values.map((n, i) => intToHex(i === 3 ? Math.round(255 * n) : n)).join('')}`;
 }
 
 /**
