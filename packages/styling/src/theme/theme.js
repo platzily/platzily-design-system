@@ -4,18 +4,25 @@ export const theme = {
       main: '#19213c',
     },
     secondary: {
-      main: '#2f8ccc',
-    },
-    tertiary: {
       main: '#97c343',
     },
-    text: {
-      main: '#273b46',
-      light: '#7e95a5',
+    success: {
+      main: '#97C343',
     },
-    grey: {},
-    backround: {
-      main: '#f4f8fb',
+    warning: {
+      main: '#C3B643',
+    },
+    info: {
+      main: '#2F8CCC',
+    },
+    error: {
+      main: '#C34343',
+    },
+    text: {
+      main: '#000000',
+      secondary: '#707070',
+      light: '#FFFFFF',
+      disabled: '#C4C4C4',
     },
   },
 };
