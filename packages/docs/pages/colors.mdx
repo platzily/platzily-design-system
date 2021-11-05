@@ -1,0 +1,44 @@
+import { Color, DefaultStyledBox } from '../components/styling/index';
+
+# Colors
+
+You can using different colors by default or could change it with [`createTheme`](http://localhost:3000/platzily-ui/styling). Many of components get the value of one color. Read well the documentation of the components!
+
+<br />
+
+<div style={{display: "grid", gridTemplateColumns: 'auto auto', justifyContent: 'center'}}>
+  <Color color='primary' colorType='main'/>
+  <Color color='secondary' colorType='main'/>
+  <Color color='success' colorType='main'/>
+  <Color color='warning' colorType='main'/>
+  <Color color='info' colorType='main'/>
+  <Color color='error' colorType='main'/>
+  <Color color='text' colorType='main'/>
+  <Color color='text' colorType='secondary'/>
+  <Color color='text' colorType='light'/>
+  <Color color='text' colorType='disabled'/>
+</div>
+
+### Examples
+
+You could compose using the props approach like this
+
+```jsx
+<Box color="primary"/>
+<Box color="text-secondary"/>
+<Box color="warning"/>
+<Box color="info"/>
+<Box color="error"/>
+<Box color="text-disabled"/>
+```
+
+The code above will result in:
+
+<div style={{display: "grid", gridTemplateColumns: 'auto auto auto', justifyContent: 'center'}}>
+<DefaultStyledBox color="#19213c"/>
+<DefaultStyledBox color="#707070"/>
+<DefaultStyledBox color="#C3B643"/>
+<DefaultStyledBox color="#2F8CCC"/>
+<DefaultStyledBox color="#C34343"/>
+<DefaultStyledBox color="#C4C4C4"/>
+</div>

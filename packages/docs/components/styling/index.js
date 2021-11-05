@@ -2,13 +2,14 @@ import { ThemeProvider } from '@platzily-ui/styling';
 
 import DefaultStyledBoxComponent from './DefaultStyledBox';
 import UseThemeStyledBoxComponent from './UseThemeStyledBox';
+import UseColor from './UseColor';
 
 import { defaultTheme, customTheme } from './theme';
 
 export function DefaultStyledBox({ color }) {
   return (
     <ThemeProvider theme={defaultTheme}>
-      <DefaultStyledBoxComponent color={color}/>
+      <DefaultStyledBoxComponent color={color} />
     </ThemeProvider>
   );
 }
@@ -16,7 +17,7 @@ export function DefaultStyledBox({ color }) {
 export function UseThemeStyledBox({ color }) {
   return (
     <ThemeProvider theme={defaultTheme}>
-      <UseThemeStyledBoxComponent color={color}/>
+      <UseThemeStyledBoxComponent color={color} />
     </ThemeProvider>
   );
 }
@@ -24,7 +25,7 @@ export function UseThemeStyledBox({ color }) {
 export function CustomThemeStyledBox() {
   return (
     <ThemeProvider theme={customTheme}>
-      <DefaultStyledBoxComponent/>
+      <DefaultStyledBoxComponent />
     </ThemeProvider>
   );
 }
@@ -32,11 +33,19 @@ export function CustomThemeStyledBox() {
 export function CombinedThemesStyledBox() {
   return (
     <ThemeProvider theme={defaultTheme}>
-      <DefaultStyledBoxComponent/>
-      <br/>
+      <DefaultStyledBoxComponent />
+      <br />
       <ThemeProvider theme={customTheme}>
-        <DefaultStyledBoxComponent/>
+        <DefaultStyledBoxComponent />
       </ThemeProvider>
+    </ThemeProvider>
+  );
+}
+
+export function Color({ color, colorType }) {
+  return (
+    <ThemeProvider theme={defaultTheme}>
+      <UseColor color={color} colorType={colorType} />
     </ThemeProvider>
   );
 }
