@@ -42,3 +42,40 @@ The code above will result in:
 <DefaultStyledBox color="#C34343"/>
 <DefaultStyledBox color="#C4C4C4"/>
 </div>
+
+
+## Color Manipulator
+
+If you need to add alpha to the colors or need have convert hexcolor to rgbcolor, You could use the Color Manipulator of Stylign.
+
+### Add alpha to the colors.
+
+```jsx
+import { alpha } from '@platzily-ui/styling'
+
+const useStyleSheet = createStyleSheet(
+  (theme, props) => {
+    return {
+      box: {
+        backgroundColor: alpha('#19213c', 0.6) //Return rgba(25, 33, 60, 0.6)
+    };
+  },
+  { key: 'box' },
+});
+```
+The code above will result in:
+
+<div style={{opacity: 0.6}}>
+<DefaultStyledBox color="#19213c"/>
+</div>
+
+### Convert hexcolor to rgbcolor
+
+```jsx
+import { hexToRgb } from '@platzily-ui/styling'
+
+const myFunction = (hexcolor: '#19213c') =>d{
+  const rgbColor = hexToRgb(hexcolor: '#19213c') // return rgb(25, 33, 60)
+  if(rgbColor.equals('25')) return true
+}
+```
