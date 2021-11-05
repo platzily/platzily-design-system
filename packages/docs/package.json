@@ -41,7 +41,8 @@
     "start": "next dev"
   },
   "dependencies": {
-    "@platzily-ui/styling": "0.1.0",
+    "@platzily-ui/styling": "0.1.2",
+    "@platzily-ui/components": "0.2.0",
     "next": "12.0.2",
     "nextra": "1.1.0",
     "nextra-theme-docs": "1.2.6",
