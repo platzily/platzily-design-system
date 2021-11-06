@@ -10,7 +10,7 @@ const useStyleSheet = createStyleSheet(
       height: '60px',
       left: 0,
       top: 0,
-      backgroundColor: props.color || theme.palette.text.light,
+      backgroundColor: props.backgroundColor || theme.palette.text.light,
       margin: 0,
     },
   }),
@@ -21,5 +21,5 @@ const Header = forwardRef(function Header(props, ref) {
   const { classes } = useStyleSheet(props);
   return <header ref={ref} className={cx(classes.header, props)} {...props} />;
 });
-;
+
 export default Header;
