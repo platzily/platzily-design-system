@@ -1,4 +1,4 @@
-import Button from '../../components/Button/Button'
+import Button from '../../components/Button/Button';
 
 # Bottons
 
@@ -9,30 +9,31 @@ Buttons allow users to take actions, and make choices, with a single tap.
 The `button` has two variants: `Primary` and `Secondary`.
 
 <div style={{ display: 'grid', gridTemplateColumns: 'auto auto', justifyContent: 'center' }}>
-<Button>Primary</Button>
-<Button variant="secondary">Secondary</Button>
+  <Button>Primary</Button>
+  <Button variant="secondary">Secondary</Button>
 </div>
 
 ### Primary Button
+
 `Pramry Button` are high-emphasis, is used to actions primary of you app.
 
 ```jsx
-import { Button } from '@platzily-ui/components'
-import { Fragment } from 'react'
+import { Button } from '@platzily-ui/components';
+import { Fragment } from 'react';
 
 const MyComponent = () => {
-  return(
+  return (
     <Fragment>
       <Button>Normal</Button>
       <Button disabled>Disabled</Button>
     </Fragment>
-  )
-}
+  );
+};
 ```
 
 <div style={{ display: 'grid', gridTemplateColumns: 'auto auto', justifyContent: 'center' }}>
-<Button>Normal</Button>
-<Button disabled>Disabled</Button>
+  <Button>Normal</Button>
+  <Button disabled>Disabled</Button>
 </div>
 
 ### Secondary Button
@@ -40,21 +41,78 @@ const MyComponent = () => {
 `Secondary Button` are medium-emphasis, is used to actions secondary of you app.
 
 ```jsx
-import { Button } from '@platzily-ui/components'
-import { Fragment } from 'react'
+import { Button } from '@platzily-ui/components';
+import { Fragment } from 'react';
 
 const MyComponent = () => {
-  return(
+  return (
     <Fragment>
-      <Button variant='secondary'>Normal</Button>
-      <Button variant='secondary' disabled>Disabled</Button>
+      <Button variant="secondary">Normal</Button>
+      <Button variant="secondary" disabled>
+        Disabled
+      </Button>
     </Fragment>
-  )
-}
+  );
+};
 ```
 
 <div style={{ display: 'grid', gridTemplateColumns: 'auto auto', justifyContent: 'center' }}>
-<Button variant='secondary'>Normal</Button>
-<Button variant='secondary' disabled>Disabled</Button>
+  <Button variant="secondary">Normal</Button>
+  <Button variant="secondary" disabled>
+    Disabled
+  </Button>
 </div>
 
+## Handling
+
+All components accept handlers that is applied to the root DOM element.
+
+```jsx
+import { Button } from '@platzily-ui/components';
+import { Fragment } from 'react';
+
+const MyComponent = () => {
+  const handleClick = () => {
+    alert('clicked');
+  };
+
+  return (
+    <Fragment>
+      <Button onClick={handleClick}>Click me</Button>
+    </Fragment>
+  );
+};
+```
+
+## Colors
+
+In addition to using the default button colors, you can add custom. Allowed format: `'rgb', 'rgba', 'hsl', 'hsla', 'Hex'`
+
+```jsx
+import { Button } from '@platzily-ui/components';
+import { Fragment } from 'react';
+
+const MyComponent = () => {
+  const handleClick = () => {
+    alert('clicked');
+  };
+
+  return (
+    <Fragment>
+      <Button color="#FFC0CB">
+        With HexColor
+      </Button>
+      <Button color="rgb(205,92,92)" variant="secondary">
+        With RGBColor
+      </Button>
+    </Fragment>
+  );
+};
+```
+
+<div style={{ display: 'grid', gridTemplateColumns: 'auto auto', justifyContent: 'center' }}>
+  <Button color="#FFC0CB">With HexColor</Button>
+  <Button color="rgb(	205,92,92)" variant="secondary">
+    With RGBColor
+  </Button>
+</div>
