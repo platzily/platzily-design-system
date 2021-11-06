@@ -1,0 +1,29 @@
+# Header Component
+
+import { Header } from '../../components/styling/index';
+
+This component will provide you the wrapper for the header of the app.
+
+<div style={{ border: '1px solid black', margin: '50px 0 50px 0' }}>
+  <Header />
+</div>
+
+You can provide styles to the component like that and also include new components inside the tag:
+
+```jsx
+import { Header } from '@platzily-ui/components';
+
+export default function ComponentHeader() {
+  const headerStyle = {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  };
+
+  return (
+    <Header style={headerStyle} position="static">
+      New Header components
+    </Header>
+  );
+}
+```
