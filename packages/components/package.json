@@ -1,8 +1,8 @@
 {
-  "name": "@platzily-ui/styling",
-  "version": "0.1.2",
+  "name": "@platzily-ui/components",
+  "version": "0.2.0",
   "private": false,
-  "description": "Platzily UI styling API",
+  "description": "Platzily UI components API",
   "main": "./dist/index",
   "author": "Platzily UI Team",
   "contributors": [
@@ -33,19 +33,22 @@
     "design system",
     "platzily-ui",
     "platzi",
-    "styles",
-    "styling"
+    "components",
+    "buttons",
+    "icons",
+    "hero icons",
+    "header"
   ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/platzily/platzily-ui.git",
-    "directory": "packages/styling"
+    "directory": "packages/components"
   },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/platzily/platzily-ui/issues"
   },
-  "homepage": "https://github.com/platzily/platzily-ui#readme",
+  "homepage": "https://platzily.github.io/platzily-ui",
   "scripts": {
     "build": "NODE_ENV=production && rm -rf ./dist && mkdir dist && npx babel --config-file ../../babel.config src/ --out-dir dist --copy-files"
   },
@@ -63,9 +66,10 @@
     }
   },
   "dependencies": {
-    "@platzily-ui/utils": "0.1.0",
-    "csstype": "3.0.9",
-    "prop-types": "15.7.2"
+    "@platzily-ui/styling": "0.1.2",
+    "prop-types": "15.7.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
   },
   "publishConfig": {
     "access": "public"

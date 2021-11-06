@@ -1,0 +1,72 @@
+import { Color, DefaultStyledBox } from '../components/styling/index';
+
+# Colors
+
+You can using different colors by default or could change it with [`createTheme`](/platzily-ui/styling). The components could paint themselves depending on the colors.
+
+<br />
+
+<div style={{display: "grid", gridTemplateColumns: 'auto auto', justifyContent: 'center'}}>
+  <Color color='primary' colorType='main'/>
+  <Color color='secondary' colorType='main'/>
+  <Color color='success' colorType='main'/>
+  <Color color='warning' colorType='main'/>
+  <Color color='info' colorType='main'/>
+  <Color color='error' colorType='main'/>
+  <Color color='text' colorType='main'/>
+  <Color color='text' colorType='secondary'/>
+  <Color color='text' colorType='light'/>
+  <Color color='text' colorType='disabled'/>
+</div>
+
+### Examples
+
+You could compose using the props approach like this
+
+```jsx
+<Box color="primary"/>
+<Box color="text-secondary"/>
+<Box color="warning"/>
+<Box color="info"/>
+<Box color="error"/>
+<Box color="text-disabled"/>
+```
+
+The code above will result in:
+
+<div style={{display: "grid", gridTemplateColumns: 'auto auto auto', justifyContent: 'center'}}>
+<DefaultStyledBox color="#19213c"/>
+<DefaultStyledBox color="#707070"/>
+<DefaultStyledBox color="#C3B643"/>
+<DefaultStyledBox color="#2F8CCC"/>
+<DefaultStyledBox color="#C34343"/>
+<DefaultStyledBox color="#C4C4C4"/>
+</div>
+
+
+## Color Manipulator
+
+If you need to add alpha to the colors, You could use the Color Manipulator of Stylign.
+
+### Alpha
+
+The function Alpha convert of rgb to rgba, adding a channel alpha to color
+
+```jsx
+import { alpha } from '@platzily-ui/styling'
+
+const useStyleSheet = createStyleSheet(
+  (theme, props) => {
+    return {
+      box: {
+        backgroundColor: alpha('#19213c', 0.6) //Return rgba(25, 33, 60, 0.6)
+    };
+  },
+  { key: 'box' },
+});
+```
+The code above will result in:
+
+<div style={{opacity: 0.6}}>
+<DefaultStyledBox color="#19213c"/>
+</div>
