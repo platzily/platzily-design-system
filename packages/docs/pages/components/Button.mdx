@@ -83,36 +83,3 @@ const MyComponent = () => {
   );
 };
 ```
-
-## Colors
-
-In addition to using the default button colors, you can add custom. Allowed format: `'rgb', 'rgba', 'hsl', 'hsla', 'Hex'`
-
-```jsx
-import { Button } from '@platzily-ui/components';
-import { Fragment } from 'react';
-
-const MyComponent = () => {
-  const handleClick = () => {
-    alert('clicked');
-  };
-
-  return (
-    <Fragment>
-      <Button color="#FFC0CB">
-        With HexColor
-      </Button>
-      <Button color="rgb(205,92,92)" variant="secondary">
-        With RGBColor
-      </Button>
-    </Fragment>
-  );
-};
-```
-
-<div style={{ display: 'grid', gridTemplateColumns: 'auto auto', justifyContent: 'center' }}>
-  <Button color="#FFC0CB">With HexColor</Button>
-  <Button color="rgb(	205,92,92)" variant="secondary">
-    With RGBColor
-  </Button>
-</div>

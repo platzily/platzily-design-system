@@ -52,19 +52,16 @@
     "build": "NODE_ENV=production && rm -rf ./dist && mkdir dist && npx babel --config-file ../../babel.config src/ --out-dir dist --copy-files"
   },
   "peerDependencies": {
-    "@emotion/css": ">=10.0.0",
     "@types/react": ">=16.8.0",
     "react": ">=16.8.0"
   },
   "peerDependenciesMeta": {
-    "@emotion/css": {
-      "optional": true
-    },
     "@types/react": {
       "optional": true
     }
   },
   "dependencies": {
+    "@emotion/css": ">=10.0.0",
     "@platzily-ui/styling": "0.1.2",
     "prop-types": "15.7.2",
     "react": "17.0.2",

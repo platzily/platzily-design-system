@@ -3,55 +3,54 @@ import { createStyleSheet, alpha as convertRgba } from '@platzily-ui/styling';
 import { cx } from '@emotion/css';
 
 const useStyleSheet = createStyleSheet(
-  (theme, props) => {
+  (theme) => {
     return {
-      primaryButton: {
-        backgroundColor: props.color || theme.palette.secondary.main,
-        borderRadius: '5px',
-        width: '210px',
-        height: '40px',
+      primary: {
+        backgroundColor: theme.palette.secondary.main,
+        borderRadius: 5,
+        width: 210,
+        height: 40,
         textAlign: 'center',
-        fontWeight: '500',
-        fontSize: '20px',
+        fontWeight: 500,
+        fontSize: '1.25rem',
         color: theme.palette.primary.main,
         '&:hover': {
           color: theme.palette.text.light,
-          backgroundColor: convertRgba(props.color || theme.palette.secondary.main, 0.6),
+          backgroundColor: convertRgba(theme.palette.secondary.main, 0.6),
         },
         '&:focus': {
-          backgroundColor: convertRgba(props.color || theme.palette.secondary.main, 0.6),
+          backgroundColor: convertRgba(theme.palette.secondary.main, 0.6),
         },
         '&:disabled': {
           backgroundColor: theme.palette.text.disabled,
           color: theme.palette.text.secondary,
-          PointerEvents: 'none',
-          cursor: 'default',
+          cursor: 'not-allowed',
         },
       },
-      secondaryButton: {
+      secondary: {
         backgroundColor: 'transparent',
-        borderRadius: '5px',
-        border: '1.5px solid',
-        borderColor: props.color || theme.palette.primary.main,
-        width: '210px',
-        height: '40px',
+        borderRadius: 5,
+        borderWidth: 1.5,
+        borderStyle: 'solid',
+        borderColor: theme.palette.primary.main,
+        width: 210,
+        height: 40,
         textAlign: 'center',
-        fontWeight: '500',
-        fontSize: '20px',
-        color: props.color || theme.palette.primary.main,
+        fontWeight: 500,
+        fontSize: '1.25rem',
+        color: theme.palette.primary.main,
         '&:hover': {
-          backgroundColor: convertRgba(props.color ||theme.palette.secondary.main, 0.6),
+          backgroundColor: convertRgba(theme.palette.secondary.main, 0.6),
         },
         '&:focus': {
           backgroundColor: theme.palette.text.light,
-          borderColor: props.color || theme.palette.secondary.main,
+          borderColor: theme.palette.secondary.main,
         },
         '&:disabled': {
-          PointerEvents: 'none',
+          cursor: 'not-allowed',
           backgroundColor: 'transparent',
           color: theme.palette.text.disabled,
           borderColor: theme.palette.text.disabled,
-          cursor: 'default',
         },
       },
     };
@@ -59,23 +58,18 @@ const useStyleSheet = createStyleSheet(
   { key: 'button' },
 );
 
-const selectClass = (props) => {
-  return props.variant === 'secondary' ? 'secondaryButton' : 'primaryButton';
-};
-
 const combiningClassName = (classes, props) => {
-  return cx(classes, props.className);
+  return cx(classes[props.variant || 'primary'], props.className);
 };
 
 const Button = forwardRef(function Button(props, ref) {
   const { classes } = useStyleSheet(props);
-  const buttonStyle = selectClass(props);
   return (
     <button
       ref={ref}
       type="button"
       {...props}
-      className={combiningClassName(classes[buttonStyle], props)}
+      className={combiningClassName(classes, props)}
     />
   );
 });
