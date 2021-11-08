@@ -6,17 +6,30 @@ You can using different colors by default or could change it with [`createTheme`
 
 <br />
 
-<div style={{display: "grid", gridTemplateColumns: 'auto auto', justifyContent: 'center'}}>
+<div style={{display: "grid", gridTemplateColumns: 'auto auto auto', justifyContent: 'center'}}>
   <Color color='primary' colorType='main'/>
+  <Color color='primary' colorType='secondary'/>
+  <Color color='primary' colorType='tertiary'/>
   <Color color='secondary' colorType='main'/>
+  <Color color='secondary' colorType='secondary'/>
+  <Color color='secondary' colorType='tertiary'/>
+  <Color color='tertiary' colorType='main'/>
+  <Color color='tertiary' colorType='secondary'/>
+  <Color color='tertiary' colorType='tertiary'/>
+</div>
+<div style={{display: "grid", gridTemplateColumns: 'auto auto', justifyContent: 'center'}}>
   <Color color='success' colorType='main'/>
+  <Color color='success' colorType='secondary'/>
   <Color color='warning' colorType='main'/>
+  <Color color='warning' colorType='secondary'/>
   <Color color='info' colorType='main'/>
+  <Color color='info' colorType='secondary'/>
   <Color color='error' colorType='main'/>
-  <Color color='text' colorType='main'/>
-  <Color color='text' colorType='secondary'/>
-  <Color color='text' colorType='light'/>
-  <Color color='text' colorType='disabled'/>
+  <Color color='error' colorType='secondary'/>
+  <Color color='neutral' colorType='main'/>
+  <Color color='neutral' colorType='secondary'/>
+  <Color color='neutral' colorType='light'/>
+  <Color color='neutral' colorType='dark'/>
 </div>
 
 ### Examples
@@ -25,22 +38,22 @@ You could compose using the props approach like this
 
 ```jsx
 <Box color="primary"/>
-<Box color="text-secondary"/>
+<Box color="neutral-secondary"/>
 <Box color="warning"/>
 <Box color="info"/>
 <Box color="error"/>
-<Box color="text-disabled"/>
+<Box color="neutral"/>
 ```
 
 The code above will result in:
 
 <div style={{display: "grid", gridTemplateColumns: 'auto auto auto', justifyContent: 'center'}}>
 <DefaultStyledBox color="#19213c"/>
-<DefaultStyledBox color="#707070"/>
+<DefaultStyledBox color="#7E95A5"/>
 <DefaultStyledBox color="#C3B643"/>
 <DefaultStyledBox color="#2F8CCC"/>
 <DefaultStyledBox color="#C34343"/>
-<DefaultStyledBox color="#C4C4C4"/>
+<DefaultStyledBox color="#273B46"/>
 </div>
 
 

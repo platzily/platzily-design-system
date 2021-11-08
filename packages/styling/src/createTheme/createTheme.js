@@ -4,11 +4,12 @@ import createThemeSection from './createThemeSection';
 const paletteKeys = [
   'primary',
   'secondary',
+  'tertiary',
   'success',
   'warning',
   'info',
   'error',
-  'text'
+  'neutral'
 ];
 
 export default function createTheme(theme = defaultTheme) {
