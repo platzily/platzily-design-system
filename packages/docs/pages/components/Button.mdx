@@ -6,16 +6,17 @@ Buttons allow users to take actions, and make choices, with a single tap.
 
 ## Basic Buttons
 
-The `button` has two variants: `Primary` and `Secondary`.
+The `Button` has three variants: `Contained`, `Outlined`, `Text` and is by default: `Contained`.
 
-<div style={{ display: 'grid', gridTemplateColumns: 'auto auto', justifyContent: 'center' }}>
-  <Button>Primary</Button>
-  <Button variant="secondary">Secondary</Button>
+<div style={{ display: 'grid', gridTemplateColumns: 'auto auto auto', justifyContent: 'center' }}>
+  <Button variant="contained">Cotained</Button>
+  <Button variant="outlined">Outlined</Button>
+  <Button variant="text">Text</Button>
 </div>
 
-### Primary Button
+### Contained Button
 
-`Pramry Button` are high-emphasis, is used to actions primary of you app.
+`Contained Button` are high-emphasis, is used to actions primary of you app.
 
 ```jsx
 import { Button } from '@platzily-ui/components';
@@ -24,21 +25,23 @@ import { Fragment } from 'react';
 const MyComponent = () => {
   return (
     <Fragment>
-      <Button>Normal</Button>
-      <Button disabled>Disabled</Button>
+      <Button>Default</Button>
+      <Button variant="contained">Normal</Button>
+      <Button variant="contained" disabled>Disabled</Button>
     </Fragment>
   );
 };
 ```
 
-<div style={{ display: 'grid', gridTemplateColumns: 'auto auto', justifyContent: 'center' }}>
-  <Button>Normal</Button>
-  <Button disabled>Disabled</Button>
+<div style={{ display: 'grid', gridTemplateColumns: 'auto auto auto', justifyContent: 'center' }}>
+<Button>Default</Button>
+  <Button variant="contained">Normal</Button>
+  <Button variant="contained" disabled>Disabled</Button>
 </div>
 
-### Secondary Button
+### Outlined Button
 
-`Secondary Button` are medium-emphasis, is used to actions secondary of you app.
+`Outlined Button` are medium-emphasis, is used to actions secondary of you app.
 
 ```jsx
 import { Button } from '@platzily-ui/components';
@@ -47,8 +50,8 @@ import { Fragment } from 'react';
 const MyComponent = () => {
   return (
     <Fragment>
-      <Button variant="secondary">Normal</Button>
-      <Button variant="secondary" disabled>
+      <Button variant="outlined">Normal</Button>
+      <Button variant="outlined" disabled>
         Disabled
       </Button>
     </Fragment>
@@ -57,8 +60,34 @@ const MyComponent = () => {
 ```
 
 <div style={{ display: 'grid', gridTemplateColumns: 'auto auto', justifyContent: 'center' }}>
-  <Button variant="secondary">Normal</Button>
-  <Button variant="secondary" disabled>
+  <Button variant="outlined">Normal</Button>
+  <Button variant="outlined" disabled>Disabled</Button>
+</div>
+
+
+## Text Button
+
+`Text Button` are typically used for less-pronounced actions with: in Cards, in Dialogs, In Help, Text Action.
+
+```jsx
+import { Button } from '@platzily-ui/components';
+import { Fragment } from 'react';
+
+const MyComponent = () => {
+  return (
+    <Fragment>
+      <Button variant="text">Normal</Button>
+      <Button variant="text" disabled>
+        Disabled
+      </Button>
+    </Fragment>
+  );
+};
+```
+
+<div style={{ display: 'grid', gridTemplateColumns: 'auto auto', justifyContent: 'center' }}>
+  <Button variant="text">Normal</Button>
+  <Button variant="text" disabled>
     Disabled
   </Button>
 </div>
