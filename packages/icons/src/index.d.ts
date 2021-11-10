@@ -51,3 +51,12 @@ export { default as User } from './User';
 
 export * from './UsersAdd';
 export { default as UsersAdd } from './UsersAdd';
+
+export * from './Return';
+export { default as Return } from './Return';
+
+export * from './Logotype';
+export { default as Logotype } from './Logotype';
+
+export * from './Isotype';
+export { default as Isotype } from './Isotype';

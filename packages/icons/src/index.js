@@ -16,3 +16,6 @@ export { default as Search } from './Search';
 export { default as Trash } from './Trash';
 export { default as User } from './User';
 export { default as UsersAdd } from './UsersAdd';
+export { default as Return } from './Return';
+export { default as Logotype } from './Logotype';
+export { default as Isotype } from './Isotype';
