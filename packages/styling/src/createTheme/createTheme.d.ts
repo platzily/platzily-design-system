@@ -3,23 +3,44 @@ import { Theme } from '../theme';
 export interface ThemeOptions {
   palette?: {
     primary?: {
-      main?: string,
-    },
+      main?: string;
+      secondary?: string;
+      tertiary?: string;
+    };
     secondary?: {
-      main?: string,
-    },
+      main?: string;
+      secondary?: string;
+      tertiary?: string;
+    };
     tertiary?: {
+      main?: string;
+      secondary?: string;
+      tertiary?: string;
+    };
+    success?: {
+      main?: string;
+      secondary?: string;
+    };
+    warning?: {
+      main?: string;
+      secondary?: string;
+    };
+    info?: {
+      main?: string;
+      secondary?: string;
+    };
+    error?: {
+      main?: string;
+      secondary?: string;
+    };
+    neutral?: {
       main?: string,
-    },
-    text?: {
-      main?: string,
-      light?: string,
-    },
-    grey?: {},
-    backround?: {
-      main?: string,
-    },
-  },
+      secondary?: string,
+      tertiary?: string;
+      light?: string
+      dark?: string
+    }
+  };
 }
 
 /**

@@ -2,27 +2,41 @@ export interface Theme {
   palette: {
     primary: {
       main: string;
+      secondary: string;
+      tertiary: string;
     };
     secondary: {
       main: string;
+      secondary: string;
+      tertiary: string;
+    };
+    tertiary: {
+      main: string;
+      secondary: string;
+      tertiary: string;
     };
     success : {
-      main: string
+      main: string;
+      secondary: string;
     };
     warning : {
-      main: string
+      main: string;
+      secondary: string;
     };
     info: {
-      main: string
+      main: string;
+      secondary: string;
     };
     error: {
-      main: string
+      main: string;
+      secondary: string;
     };
-    text: {
+    neutral: {
       main: string,
       secondary: string,
+      tertiary: string,
       light: string
-      disabled: string
+      dark: string
     }
   };
 }
