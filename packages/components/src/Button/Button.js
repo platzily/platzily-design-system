@@ -20,15 +20,15 @@ const useStyleSheet = createStyleSheet(
         letterSpacing: '0.02em',
         color: theme.palette.primary.main,
         '&:hover': {
-          color: theme.palette.text.light,
+          color: theme.palette.neutral.light,
           backgroundColor: convertRgba(theme.palette.secondary.main, 0.6),
         },
         '&:focus': {
           backgroundColor: convertRgba(theme.palette.secondary.main, 0.6),
         },
         '&:disabled': {
-          backgroundColor: theme.palette.text.disabled,
-          color: theme.palette.text.secondary,
+          backgroundColor: theme.palette.neutral.secondary,
+          color: theme.palette.neutral.tertiary,
           cursor: 'not-allowed',
         },
       },
@@ -53,13 +53,13 @@ const useStyleSheet = createStyleSheet(
           backgroundColor: convertRgba(theme.palette.secondary.main, 0.6),
         },
         '&:focus': {
-          backgroundColor: theme.palette.text.light,
+          backgroundColor: theme.palette.neutral.light,
           borderColor: theme.palette.secondary.main,
         },
         '&:disabled': {
           backgroundColor: 'transparent',
-          color: theme.palette.text.disabled,
-          borderColor: theme.palette.text.disabled,
+          color: theme.palette.neutral.secondary,
+          borderColor: theme.palette.neutral.secondary,
           cursor: 'not-allowed'
         },
       },
@@ -87,8 +87,9 @@ const useStyleSheet = createStyleSheet(
           textDecorationColor: theme.palette.primary.main
         },
         '&:disabled': {
-          color: theme.palette.text.disabled,
-          textDecorationColor: theme.palette.text.disabled
+          color: theme.palette.neutral.secondary,
+          textDecorationColor: theme.palette.neutral.secondary,
+          cursor: 'not-allowed'
         }
       }
     };
@@ -104,7 +105,7 @@ const Button = forwardRef(function Button(props, ref) {
       ref={ref}
       type="button"
       {...otherProps}
-      className={cx(classes, className)}
+      className={cx(classes[variant], className)}
     />
   );
 });
