@@ -1,6 +1,6 @@
 {
   "name": "@platzily-ui/components",
-  "version": "0.2.0",
+  "version": "0.1.2",
   "private": false,
   "description": "Platzily UI components API",
   "main": "./dist/index",
@@ -53,14 +53,10 @@
     "build": "NODE_ENV=production && rm -rf ./dist && mkdir dist && npx babel --config-file ../../babel.config src/ --out-dir dist --copy-files"
   },
   "peerDependencies": {
-    "@emotion/css": ">=10.0.0",
     "@types/react": ">=16.8.0",
     "react": ">=16.8.0"
   },
   "peerDependenciesMeta": {
-    "@emotion/css": {
-      "optional": true
-    },
     "@types/react": {
       "optional": true
     }

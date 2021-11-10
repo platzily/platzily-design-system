@@ -4,7 +4,7 @@ import DefaultStyledBoxComponent from './DefaultStyledBox';
 import UseThemeStyledBoxComponent from './UseThemeStyledBox';
 import ColorComponent from './ColorComponent';
 
-import ComponentHeader from '../Header/Header';
+import HeaderComponent from '../Header/Header';
 
 import { defaultTheme, customTheme } from './theme';
 
@@ -52,10 +52,10 @@ export function Color({ color, colorType }) {
   );
 }
 
-export function Header({ color } ) {
+export function Header() {
   return (
     <ThemeProvider theme={defaultTheme}>
-      <ComponentHeader color={color}/>
+      <HeaderComponent  />
     </ThemeProvider>
   );
 }

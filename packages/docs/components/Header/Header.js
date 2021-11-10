@@ -1,6 +1,6 @@
 import { Header } from '@platzily-ui/components';
 
-export default function ComponentHeader() {
+export default function HeaderComponent() {
   const headerStyle = {
     display: 'flex',
     alignItems: 'center',
@@ -8,7 +8,7 @@ export default function ComponentHeader() {
   };
 
   return (
-    <Header style={headerStyle} position="static">
+    <Header style={headerStyle} >
       Header Component
     </Header>
   );

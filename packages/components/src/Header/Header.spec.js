@@ -13,7 +13,7 @@ describe('@Components/Header', () => {
     spy.console.mockRestore();
   });
 
-  it('Given a styling by style attribute using theme with createTheme() ', () => {
+  it('Given the Header Component, when the props provide an object within the styles attribute then the component will take those styles ', () => {
     // arrange
     const theme = createTheme();
     const { getByRole } = render(
@@ -27,31 +27,13 @@ describe('@Components/Header', () => {
     // assert
     expect(HeaderTestedText).toBeDefined();
     expect(HeaderTestedText).toHaveStyle(`color:#97c343`);
-    expect(spy.console).not.toBeCalled();
   });
 
-  it('Given a styling by style attribute using one color directly ', () => {
+  it('Given the Header Component, when the props provide position attribute then the component will take those style', () => {
     // arrange
     const { getByRole } = render(
       <ThemeProvider theme={createTheme()}>
-        <Header role="banner" style={{ backgroundColor: 'black' }} />
-
-      </ThemeProvider>,
-    );
-
-    // act
-    const HeaderTestedText = getByRole('banner');
-    // assert
-    expect(HeaderTestedText).toBeDefined();
-    expect(HeaderTestedText).toHaveStyle(`background-color:black`);
-    expect(spy.console).not.toBeCalled();
-  });
-
-  it('Given a styling by prop inject one color directly', () => {
-    // arrange
-    const { getByRole } = render(
-      <ThemeProvider theme={createTheme()}>
-        <Header role="banner"  backgroundColor={'red'}/>
+        <Header role="banner"  position={'fixed'}/>
       </ThemeProvider>,
     );
 
@@ -60,11 +42,10 @@ describe('@Components/Header', () => {
 
     // assert
     expect(HeaderTestedText).toBeDefined();
-    expect(HeaderTestedText).toHaveStyle(`background-color:red`);
-    // expect(spy.console).not.toBeCalled();
+    expect(HeaderTestedText).toHaveStyle(`position:fixed`);
   });
 
-  it('Given a children by prop inject ', () => {
+  it('Given the Header Component, when the user provide children inside the component then the component will take it', () => {
     // arrange
     const { getByRole } = render(
       <ThemeProvider theme={createTheme()}>
@@ -80,6 +61,5 @@ describe('@Components/Header', () => {
     // assert
     expect(HeaderTestedText).toBeDefined();
     expect(HeaderTestedText).toHaveTextContent('HeaderChildren');
-    expect(spy.console).not.toBeCalled();
   });
 });
