@@ -20,6 +20,8 @@
       "@platzily-ui/utils/*": ["./packages/utils/src/*"],
       "@platzily-ui/icons": ["./packages/icons/src"],
       "@platzily-ui/icons/*": ["./packages/icons/src/*"],
+      "@platzily-ui/components": ["./packages/components/src"],
+      "@platzily-ui/components/*": ["./packages/components/src/*"],
     }
   },
   "exclude": ["node_modules"]
