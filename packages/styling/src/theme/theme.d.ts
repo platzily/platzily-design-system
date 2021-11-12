@@ -34,7 +34,7 @@ export interface Theme {
     neutral: {
       main: string,
       secondary: string,
-      tertiary: string;
+      tertiary: string,
       light: string
       dark: string
     }
