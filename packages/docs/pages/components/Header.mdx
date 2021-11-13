@@ -1,0 +1,55 @@
+# Header Component
+
+import { Header } from '../../components/styling/index';
+
+This component will provide you the header wrapper.
+
+<div style={{ border: '1px solid black', margin: '50px 0 50px 0' }}>
+  <Header />
+</div>
+
+It will be possible to provide 2 styles by props. These can be bgColor or position.
+
+```jsx
+import { Header } from '@platzily-ui/components';
+
+export default function HeaderComponent() {
+  return (
+    <Header bgColor="blue" position="static">
+      Header Component
+    </Header>
+  );
+}
+```
+
+You can provide with attribute style styles to the component like that and also include new components inside the tag:
+
+```jsx
+import { Header } from '@platzily-ui/components';
+
+export default function ComponentHeader() {
+  return (
+    <Header style={{ display: flex }}>
+      New Header components
+    </Header>);
+}
+```
+
+If you want to provide many props, is possible to create an object and provide the object inside the style attribute.
+
+```jsx
+import { Header } from '@platzily-ui/components';
+
+export default function ComponentHeader() {
+  const headerStyle = {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  };
+
+  return (
+    <Header style={headerStyle}>
+      New Header components
+    </Header>);
+}
+```

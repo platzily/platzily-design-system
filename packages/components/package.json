@@ -33,11 +33,7 @@
     "design system",
     "platzily-ui",
     "platzi",
-    "components",
-    "buttons",
-    "icons",
-    "text",
-    "hero icons"
+    "components"
   ],
   "repository": {
     "type": "git",
@@ -50,7 +46,7 @@
   },
   "homepage": "https://platzily.github.io/platzily-ui",
   "scripts": {
-    "build": "NODE_ENV=production && rm -rf ./dist && mkdir dist && npx babel --config-file ../../babel.config src/ --out-dir dist --copy-files"
+    "build": "NODE_ENV=production && rm -rf ./dist && mkdir dist && npx babel --config-file ../../babel.config src/ --out-dir dist --copy-files --ignore '**/*.spec.js' --no-copy-ignored"
   },
   "peerDependencies": {
     "@types/react": ">=16.8.0",
@@ -62,11 +58,8 @@
     }
   },
   "dependencies": {
-    "@emotion/css": ">=10.0.0",
     "@platzily-ui/styling": "0.1.3",
-    "prop-types": "15.7.2",
-    "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "prop-types": "15.7.2"
   },
   "publishConfig": {
     "access": "public"

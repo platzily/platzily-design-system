@@ -2,16 +2,11 @@ import { Button } from '@platzily-ui/components';
 import { ThemeProvider, createStyleSheet } from '@platzily-ui/styling';
 import { defaultTheme } from './theme';
 
-const useStyleSheet = createStyleSheet(
-  () => {
-    return {
-      box: {
-        margin: '10px',
-      },
-    };
+const useStyleSheet = createStyleSheet(() => ({
+  box: {
+    margin: '10px',
   },
-  { key: 'margin' },
-);
+}), { key: 'margin' });
 
 export default function ButtonComponent(props) {
   const { classes } = useStyleSheet();

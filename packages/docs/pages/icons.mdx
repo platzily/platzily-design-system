@@ -1,0 +1,65 @@
+import { Link } from '@platzily-ui/icons'
+import { Icons } from '../components/icons'
+import { Warning } from '../components/format/index'
+
+# Icons
+
+Click on the icon to copy it import.
+
+If you click on `Airplane` you'll copy `import { Airplane } from '@platzily-ui/icons'`
+
+<Icons />
+
+## Usage
+
+The `Icons` it add importing the icon and doing the declaration in the you component. Example:
+
+```jsx
+import { User } from '@platzily-ui/icons'; //import Icon
+import { Frament } from 'react';
+
+export default function MyComponent() {
+  return (
+    <Frament>
+      <User /> //Declaration Icon
+    </Frament>
+  );
+}
+```
+
+## Sizes
+
+The `Icons` have prop `size` should change size the icon. Is by default: `1x`
+
+```jsx
+import { Link } from '@platzily-ui/icons';
+import { Frament } from 'react';
+
+export default function MyComponent() {
+  return (
+    <Frament>
+      <Link size="xs" /> //Size in rem: 0.5rem
+      <Link size="sm" /> //Size in rem: 0.75rem
+      <Link size="md" /> //Size in rem: 1rem
+      <Link size="lg" /> //Size in rem: 1.5rem
+      <Link size="xl" /> //Size in rem: 2rem
+      <Link size="xxl" /> //Size in rem: 2.5rem
+    </Frament>
+  );
+}
+```
+
+<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+  <Link size="xs" />
+  <Link size="sm" />
+  <Link size="md" />
+  <Link size="lg" />
+  <Link size="xl" />
+  <Link size="xxl" />
+</div>
+
+
+<Warning>
+  Isotype and Logotype icons do not respond to size prop, they got their own logic behind.
+</Warning>
+
