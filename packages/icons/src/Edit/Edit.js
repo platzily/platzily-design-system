@@ -1,20 +1,14 @@
 import { forwardRef } from 'react';
-import selectSizeIcon from '../lib/selectSizeIcon/selectSizeIcon';
+import { SvgIcon } from '@platzily-ui/components';
 
-const Edit = forwardRef(function Link(props, ref) {
-  const sizeIcon = selectSizeIcon(props);
+const Edit = forwardRef(function Edit(props, ref) {
   return (
-    <svg
+    <SvgIcon
       ref={ref}
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 20 20"
-      fill="currentColor"
-      height={sizeIcon.height}
-      width={sizeIcon.width}
       {...props}
     >
       <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
-    </svg>
+    </SvgIcon>
   );
 });
 

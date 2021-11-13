@@ -76,7 +76,12 @@ module.exports = {
     'react/state-in-constructor': 'off',
     'react/static-property-placement': 'off',
     'react/react-in-jsx-scope': 'off',
-    'jsx-a11y/anchor-is-valid': 'off'
+    'jsx-a11y/anchor-is-valid': 'off',
+    'react/no-arrow-function-lifecycle': 'off',
+    'react/no-invalid-html-attribute': 'off',
+    'react/no-unused-class-component-methods': 'off',
+    'jsx-a11y/alt-text': 'off',
+    'react/function-component-definition': 'off'
   },
   settings: {
     'import/resolver': {

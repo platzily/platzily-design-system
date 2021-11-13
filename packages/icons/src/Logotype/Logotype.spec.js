@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import Logotype from './Return';
+import Logotype from './Logotype';
 
 describe('@icons/Logotype', () => {
   it('Given a normal call it should render properly', () => {
