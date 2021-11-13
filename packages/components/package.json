@@ -1,0 +1,70 @@
+{
+  "name": "@platzily-ui/components",
+  "version": "0.1.0",
+  "private": false,
+  "description": "Platzily UI components API",
+  "main": "./dist/index",
+  "author": "Platzily UI Team",
+  "contributors": [
+    {
+      "name": "Omar Flores",
+      "github": "https://github.com/omarefg"
+    },
+    {
+      "name": "Octavio Cuellar",
+      "github": "https://github.com/octaviocvargas"
+    },
+    {
+      "name": "Kevin Farid",
+      "github": "https://github.com/kevfarid"
+    },
+    {
+      "name": "Daniel Valdivieso",
+      "github": "https://github.com/danielvaldivv"
+    },
+    {
+      "name": "Felipe Duitama",
+      "github": "https://github.com/felipedc09"
+    }
+  ],
+  "keywords": [
+    "platzi master",
+    "react",
+    "design system",
+    "platzily-ui",
+    "platzi",
+    "components"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/platzily/platzily-ui.git",
+    "directory": "packages/components"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/platzily/platzily-ui/issues"
+  },
+  "homepage": "https://platzily.github.io/platzily-ui",
+  "scripts": {
+    "build": "NODE_ENV=production && rm -rf ./dist && mkdir dist && npx babel --config-file ../../babel.config src/ --out-dir dist --copy-files --ignore '**/*.spec.js' --no-copy-ignored"
+  },
+  "peerDependencies": {
+    "@types/react": ">=16.8.0",
+    "react": ">=16.8.0"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@platzily-ui/styling": "0.1.4",
+    "prop-types": "15.7.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  }
+}

@@ -34,9 +34,12 @@ export interface Theme {
     neutral: {
       main: string,
       secondary: string,
-      tertiary: string;
+      tertiary: string,
       light: string
       dark: string
     }
   };
+  spacing: (times?: number) => number;
+  radius: Number;
+  elevation: Array<string>;
 }
