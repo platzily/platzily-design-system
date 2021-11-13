@@ -3,16 +3,6 @@ import { ThemeProvider, createTheme } from '@platzily-ui/styling';
 import Header from './Header';
 
 describe('@Components/Header', () => {
-  const spy = {};
-
-  beforeEach(() => {
-    spy.console = jest.spyOn(console, 'error').mockImplementation(() => {});
-  });
-
-  afterEach(() => {
-    spy.console.mockRestore();
-  });
-
   it('Given the Header Component, when the props provide an object within the styles attribute then the component will take those styles ', () => {
     // arrange
     const theme = createTheme();

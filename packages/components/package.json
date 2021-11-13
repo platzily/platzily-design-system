@@ -1,6 +1,10 @@
 {
   "name": "@platzily-ui/components",
+<<<<<<< HEAD
   "version": "0.1.2",
+=======
+  "version": "0.1.0",
+>>>>>>> a7bdab811ad989f1bcf5262a0de036b5eb88eca8
   "private": false,
   "description": "Platzily UI components API",
   "main": "./dist/index",
@@ -36,8 +40,12 @@
     "components",
     "buttons",
     "icons",
+<<<<<<< HEAD
     "hero icons",
     "header"
+=======
+    "hero icons"
+>>>>>>> a7bdab811ad989f1bcf5262a0de036b5eb88eca8
   ],
   "repository": {
     "type": "git",
@@ -62,6 +70,10 @@
     }
   },
   "dependencies": {
+<<<<<<< HEAD
+=======
+    "@emotion/css": ">=10.0.0",
+>>>>>>> a7bdab811ad989f1bcf5262a0de036b5eb88eca8
     "@platzily-ui/styling": "0.1.2",
     "prop-types": "15.7.2",
     "react": "17.0.2",
