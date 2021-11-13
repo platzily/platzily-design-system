@@ -45,9 +45,9 @@
   "bugs": {
     "url": "https://github.com/platzily/platzily-ui/issues"
   },
-  "homepage": "https://github.com/platzily/platzily-ui#readme",
+  "homepage": "https://platzily.github.io/platzily-ui/styling",
   "scripts": {
-    "build": "NODE_ENV=production && rm -rf ./dist && mkdir dist && npx babel --config-file ../../babel.config src/ --out-dir dist --copy-files"
+    "build": "NODE_ENV=production && rm -rf ./dist && mkdir dist && npx babel --config-file ../../babel.config src/ --out-dir dist --copy-files --ignore '**/*.spec.js' --no-copy-ignored"
   },
   "peerDependencies": {
     "@emotion/css": ">=10.0.0",
@@ -63,6 +63,7 @@
     }
   },
   "dependencies": {
+    "@emotion/css": "11.5.0",
     "@platzily-ui/utils": "0.1.0",
     "csstype": "3.0.9",
     "prop-types": "15.7.2"
