@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const useStyleSheet = createStyleSheet(
   (theme, { bgColor, position }) => ({
     header: {
-      backgroundColor: bgColor || theme.palette.text.light,
+      backgroundColor: bgColor || theme.palette.neutral.tertiary,
       position,
       width: '100%',
       height: 60,
