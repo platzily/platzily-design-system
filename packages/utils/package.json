@@ -38,7 +38,7 @@
   },
   "homepage": "https://github.com/platzily/platzily-ui#readme",
   "scripts": {
-    "build": "NODE_ENV=production && rm -rf ./dist && mkdir dist && npx babel --config-file ../../babel.config src/ --out-dir dist --copy-files"
+    "build": "NODE_ENV=production && rm -rf ./dist && mkdir dist && npx babel --config-file ../../babel.config src/ --out-dir dist --copy-files --ignore '**/*.spec.js' --no-copy-ignored"
   },
   "publishConfig": {
     "access": "public"
