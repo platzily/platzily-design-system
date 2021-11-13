@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import { createStyleSheet } from '@platzily-ui/styling';
-import PropType, { number, object, string } from 'prop-types';
+import PropTypes from 'prop-types';
 
 const detectColor = (theme, color) => {
   const colorSplit = color.split('-');
@@ -12,27 +12,21 @@ const detectColor = (theme, color) => {
 };
 
 const useStyleSheet = createStyleSheet(
-  (theme, props) => {
-    return {
-      paper: {
-        backgroundColor: detectColor(theme, props.color || 'neutral-tertiary'),
-        padding: props.padding || 5,
-        width: props.size.width || props.size,
-        height: props.size.height || props.size,
-        borderRadius: 5,
-      },
-      outlined: {
-        border: 1,
-        borderStyle: 'solid',
-        borderColor: theme.palette.neutral.dark,
-      },
-      boxShadow: {
-        boxShadow: `0 ${props.elevation}px ${
-          Number(props.elevation) < 3 ? '4' : Number(props.elevation) * 2
-        }px rgba(0, 0, 0, 0.25)`,
-      },
-    };
-  },
+  (theme, { color, elevation }) => ({
+    paper: {
+      backgroundColor: detectColor(theme, color || 'neutral-tertiary'),
+      padding: theme.spacing(),
+      borderRadius: 5,
+    },
+    outlined: {
+      border: 1,
+      borderStyle: 'solid',
+      borderColor: theme.palette.neutral.dark,
+    },
+    boxShadow: {
+      boxShadow: theme.elevations[elevation],
+    },
+  }),
   { key: 'Paper' },
 );
 
@@ -43,25 +37,26 @@ const Paper = forwardRef(function Paper(props, ref) {
     <div
       {...otherProps}
       ref={ref}
-      className={cx(
-        variant === 'outlined' ? classes.outlined : '',
-        elevation >= 0 ? classes.boxShadow : '',
-        classes.paper,
-        className,
-      )}
+      className={cx({
+        [classes.outlined]: variant === 'outlined',
+        [classes.boxShadow]: elevation >= 0,
+        [classes.paper]: true,
+        [className]: !!className,
+      })}
     />
   );
 });
 
 Paper.propTypes = {
-  className: PropType.string,
-  elevation: PropType.oneOfType([string, number]),
-  size: PropType.oneOfType([string, object]),
-  variant: PropType.string,
+  className: PropTypes.string,
+  elevation: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6, 7]),
+  variant: PropTypes.string,
 };
 
 Paper.defaultProps = {
-  size: 'auto',
+  className: '',
+  elevation: 0,
+  variant: undefined,
 };
 
 export default Paper;

@@ -1,11 +1,21 @@
 import { Paper } from '@platzily-ui/components';
-import { createTheme, ThemeProvider } from '@platzily-ui/styling';
+import { createTheme, ThemeProvider, createStyleSheet } from '@platzily-ui/styling';
+
+const useStyleSheet = createStyleSheet(() => ({
+  root: {
+    margin: 10,
+    height: 100,
+    width: 100
+  }
+}));
 
 const PaperComponent = (props) => {
   const theme = createTheme();
+  const { classes } = useStyleSheet();
+
   return (
     <ThemeProvider theme={theme}>
-      <Paper {...props} style={{ margin: 10 }} />
+      <Paper className={classes.root} {...props} />
     </ThemeProvider>
   );
 };

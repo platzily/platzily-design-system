@@ -39,4 +39,7 @@ export interface Theme {
       dark: string
     }
   };
+  spacing: (times?: number) => number;
+  radius: Number;
+  elevation: Array<string>;
 }
