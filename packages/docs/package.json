@@ -41,6 +41,7 @@
     "start": "next dev"
   },
   "dependencies": {
+    "@platzily-ui/icons": "0.1.0",
     "@platzily-ui/components": "0.1.0",
     "@platzily-ui/styling": "0.1.3",
     "next": "12.0.2",
