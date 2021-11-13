@@ -1134,7 +1134,7 @@
     "@emotion/weak-memoize" "^0.2.5"
     stylis "^4.0.10"
 
-"@emotion/css@11.5.0":
+"@emotion/css@11.5.0", "@emotion/css@>=10.0.0":
   version "11.5.0"
   resolved "https://registry.yarnpkg.com/@emotion/css/-/css-11.5.0.tgz#0a80017080cb44d47994fe576b9923bfc8b0f6ad"
   integrity sha512-mqjz/3aqR9rp40M+pvwdKYWxlQK4Nj3cnNjo3Tx6SM14dSsEn7q/4W2/I7PlgG+mb27iITHugXuBIHH/QwUBVQ==

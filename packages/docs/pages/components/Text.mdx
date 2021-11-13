@@ -1,0 +1,104 @@
+import Text from '../../components/Text/Text';
+
+# Text
+
+The `Text` is component that allow the creation of diferent texts with two props: `variant` and `component`
+
+```jsx
+import { text } from '@platzily-ui/components';
+
+const myComponent = () => {
+  return(
+    <Text variant='title3' component='h1'>
+  );
+};
+
+export default myComponent
+```
+
+### Variant Text
+
+The `variant` prop defined the style of text, is by default: 'p'
+
+```jsx
+import { text } from '@platzily-ui/components';
+
+const myComponent = () => {
+  return(
+    <div>
+      <Text variant='title1'>title1</Text>
+      <Text variant='title2'>title2</Text>
+      <Text variant='title3'>title3</Text>
+      <Text variant='intro'>intro</Text>
+      <Text variant='paragraph'>paragraph</Text>
+      <Text variant='small'>small</Text>
+      <Text variant='link' component='a' href="/platzily-ui/components/Text">link</Text>
+      <Text variant='tag'>tag</Text>
+      <Text variant='smalltag'>smalltag</Text>
+    </div>
+  );
+};
+
+export default myComponent
+
+```
+
+<div align='center'>
+  <Text variant='title1'>title1</Text>
+  <Text variant='title2'>title2</Text>
+  <Text variant='title3'>title3</Text>
+  <Text variant='intro'>intro</Text>
+  <Text variant='paragraph'>paragraph</Text>
+  <Text variant='small'>small</Text>
+  <Text variant='link' component='a' href="/platzily-ui/components/Text">link</Text>
+  <Text variant='tag'>tag</Text>
+  <Text variant='smalltag'>smalltag</Text>
+</div>
+
+### Component Text
+
+The `component` prop represent the HTML element that get in the DOM, is by default: 'p'.
+
+```jsx
+import { text } from '@platzily-ui/components';
+
+const myComponent = () => {
+  return(
+    <div>
+      <Text variant='title1' component='h1'>This H1</Text>
+      <Text variant='title1' component='textarea'>This H1</Text>
+      <Text variant='link' component='a' href="/platzily-ui/components/Text">link</Text>
+    </div>
+  );
+};
+
+export default myComponent
+
+```
+
+## Color Text
+
+The `Text` change of the color with `Color` prop and use values as hexcolor, [colors default](/platzily-ui/colors), HTML color groups, is by default: 'neutral-dark'
+
+```jsx
+import { text } from '@platzily-ui/components';
+
+const myComponent = () => {
+  return(
+    <div>
+      <Text variant='title1' color='#EEE789'>This H1</Text>
+      <Text variant='title1' color='error-secondary'>This H1</Text>
+      <Text variant='title1' color='pink'>This H1</Text>
+    </div>
+  );
+};
+
+export default myComponent
+
+```
+
+<div align='center'>
+  <Text variant='title1' color='#EEE789'>Hexcolor</Text>
+  <Text variant='title1' color='error-secondary'>Color default</Text>
+  <Text variant='title1' color='pink'>HTML color</Text>
+</div>
