@@ -6,6 +6,8 @@ import ColorComponent from './ColorComponent';
 
 import HeaderComponent from '../Header/Header';
 
+import InputComponent from '../Input/Input';
+
 import { defaultTheme, customTheme } from './theme';
 
 export function DefaultStyledBox({ color }) {
@@ -56,6 +58,14 @@ export function Header() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <HeaderComponent  />
+    </ThemeProvider>
+  );
+}
+
+export function input() {
+  return (
+    <ThemeProvider theme={defaultTheme}>
+      <InputComponent  />
     </ThemeProvider>
   );
 }

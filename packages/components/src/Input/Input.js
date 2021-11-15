@@ -8,7 +8,10 @@ const useStyleSheet = createStyleSheet(
       width: 199,
       height: 40,
       radius: 5,
-      boxSizing: 'border-box',
+      display: 'flex',
+      alignContent: 'center',
+      alignItems: 'center',
+      justifyContent: 'center',
       backgroundColor: theme.palette.neutral.light,
       borderWidth: 1,
       borderStyle: 'solid',
@@ -16,16 +19,16 @@ const useStyleSheet = createStyleSheet(
       required,
       type
     },
-    inputActive: {
+    '&:active': {
       borderColor: theme.palette.neutral.secondary,
     },
-    inputDisabled: {
+    '&:disabled': {
       borderColor: theme.palette.neutral.tertiary,
     },
-    inputError: {
+    '&:error': {
       borderColor: theme.palette.error.main,
     },
-    inputFocus: {
+    '&:hover': {
       borderColor: theme.palette.tertiary.main,
     },
   }),
