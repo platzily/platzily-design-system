@@ -4,6 +4,8 @@ import DefaultStyledBoxComponent from './DefaultStyledBox';
 import UseThemeStyledBoxComponent from './UseThemeStyledBox';
 import ColorComponent from './ColorComponent';
 
+import HeaderComponent from '../Header/Header';
+
 import { defaultTheme, customTheme } from './theme';
 
 export function DefaultStyledBox({ color }) {
@@ -46,6 +48,14 @@ export function Color({ color, colorType }) {
   return (
     <ThemeProvider theme={defaultTheme}>
       <ColorComponent color={color} colorType={colorType} />
+    </ThemeProvider>
+  );
+}
+
+export function Header() {
+  return (
+    <ThemeProvider theme={defaultTheme}>
+      <HeaderComponent  />
     </ThemeProvider>
   );
 }

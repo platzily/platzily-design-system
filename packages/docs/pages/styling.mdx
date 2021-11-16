@@ -13,13 +13,13 @@ To install and save in your package.json dependencies, run:
 With npm
 
 ```bash
-npm install @platzily-ui/styling @emotion/css
+npm install @platzily-ui/styling
 ```
 
 With yarn
 
 ```bash
-yarn add @platzily-ui/styling @emotion/css
+yarn add @platzily-ui/styling
 ```
 
 ## Getting started
@@ -44,29 +44,55 @@ The default theme looks like this:
     palette: {
       primary: {
         main: '#19213c',
+        secondary: '#454C62',
+        tertiary: '#717788'
       },
       secondary: {
         main: '#97c343',
+        secondary: '#AACE68',
+        tertiary: '#BCD88D'
+      },
+      tertiary: {
+        main: '#2F8CCC',
+        secondary: '#56A2D5',
+        tertiary: '#7EB7DF'
       },
       success: {
-        main: '#97C343',
+        main: '#43B839',
+        secondary: '#075500'
       },
       warning: {
         main: '#C3B643',
+        secondary: '#5C4E00'
       },
       info: {
-        main: '#2F8CCC',
+        main: '#1198FF',
+        secondary: '#2F8CCC'
       },
       error: {
         main: '#C34343',
+        secondary: '#610002'
       },
-      text: {
-        main: '#000000',
-        secondary: '#707070',
+      neutral: {
+        main: '#273B46',
+        secondary: '#7E95A5',
+        tertiary: '#F4F8FB',
         light: '#FFFFFF',
-        disabled: '#C4C4C4',
+        dark: '#000000',
       },
-    }
+    },
+    spacing: 5,
+    radius: 5,
+    elevations: [
+      '0 0px 4px rgba(0, 0, 0, 0.25)',
+      '0 1px 4px rgba(0, 0, 0, 0.25)',
+      '0 2px 4px rgba(0, 0, 0, 0.25)',
+      '0 3px 6px rgba(0, 0, 0, 0.25)',
+      '0 4px 8px rgba(0, 0, 0, 0.25)',
+      '0 6px 12px rgba(0, 0, 0, 0.25)',
+      '0 8px 16px rgba(0, 0, 0, 0.25)',
+      '0 12px 24px rgba(0, 0, 0, 0.25)',
+    ]
   }
 ```
 
@@ -148,7 +174,7 @@ This is the principal function you'll be using to generate styles. It receive tw
 
 A createStyleSheet invoke looks like this:
 
-```js
+```jsx
 import { createStyleSheet } from '@platzily-ui/styling';
 
 // Look how the styles function receive theme and props, the props are available if you
