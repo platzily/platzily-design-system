@@ -9,12 +9,14 @@ const useStyleSheet = createStyleSheet((theme) => ({
 
 const InputComponent = (props) => {
   const { classes } = useStyleSheet();
-  const { required, type, otherProps } = props;
+  const { required, type, placeholder, disabled, otherProps } = props;
 
   return <Input
     className={classes.inputStyle}
     type={type}
     required={required}
+    placeholder={placeholder}
+    disabled={disabled}
     {...otherProps}
   />;
 };
