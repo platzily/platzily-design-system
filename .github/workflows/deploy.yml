@@ -22,6 +22,12 @@ jobs:
       - name: Build the styling module
         run: cd packages/styling && npx lerna bootstrap && yarn build
 
+      - name: Build the components module
+        run: cd packages/components && npx lerna bootstrap && yarn build
+
+      - name: Build the icons module
+        run: cd packages/icons && npx lerna bootstrap && yarn build
+
       - name: Build docs
         run: cd packages/docs && yarn build && touch ./out/.nojekyll
 
