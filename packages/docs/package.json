@@ -41,8 +41,9 @@
     "start": "next dev"
   },
   "dependencies": {
-    "@platzily-ui/icons": "0.1.0",
+    "@lerna/bootstrap": "^4.0.0",
     "@platzily-ui/components": "0.1.0",
+    "@platzily-ui/icons": "0.1.0",
     "@platzily-ui/styling": "0.1.4",
     "next": "12.0.2",
     "nextra": "1.1.0",

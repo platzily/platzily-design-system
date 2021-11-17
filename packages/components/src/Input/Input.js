@@ -1,13 +1,13 @@
-import { useState } from 'react';
-import { createStyleSheet } from '@platzily-ui/styling'
-import PropTypes from 'prop-types'
+import { useState, forwardRef } from 'react';
+import { createStyleSheet } from '@platzily-ui/styling';
+import PropTypes from 'prop-types';
 
 const useStyleSheet = createStyleSheet(
-  (theme, required, type) => ({
+  (theme, { required, type }) => ({
     inputDefault: {
       width: 199,
       height: 40,
-      radius: 5,
+      borderRadius: 5,
       display: 'flex',
       alignContent: 'center',
       alignItems: 'center',
@@ -17,54 +17,76 @@ const useStyleSheet = createStyleSheet(
       borderStyle: 'solid',
       borderColor: theme.palette.neutral.secondary,
       required,
-      type
+      type,
+      '&:focus': {
+        borderColor: theme.palette.tertiary.main,
+        backgroundColor: theme.palette.neutral.light,
+        borderWidth: 1,
+        borderStyle: 'solid',
+        outline: 'none',
+      },
+      '&:disabled': {
+        borderColor: theme.palette.neutral.tertiary,
+        cursor: 'not-allowed',
+      },
+      '&:invalid': {
+        borderColor: theme.palette.error.main,
+      },
+      '&:hover': {
+        borderColor: theme.palette.tertiary.main,
+      },
     },
-    '&:active': {
-      borderColor: theme.palette.neutral.secondary,
-    },
-    '&:disabled': {
-      borderColor: theme.palette.neutral.tertiary,
-    },
-    '&:error': {
-      borderColor: theme.palette.error.main,
-    },
-    '&:hover': {
-      borderColor: theme.palette.tertiary.main,
+    inputRequired: {
+      textAlign: 'left',
+      '&::placeholder': {
+        color: theme.palette.error.main,
+        paddingLeft: '95%'
+      }
     },
   }),
-  {key: 'InputComponent'}
+  { key: 'InputComponent' },
 );
 
-const Input = forwardTef(function MyInput(props, ref) {
-  const { className, ...otherProps } = props;
+const Input = forwardRef(function Input(props, ref) {
+  const { required, className, ...otherProps } = props;
   const { classes, cx } = useStyleSheet(props);
 
+  // useState Hook
   const [state, setState] = useState({
     name: '',
   });
+  const handleInputChange = (event) => setState({ name: event.target.value });
 
-  const handleInputChange = (event) => setState(
-    { name: event.target.value }
+  // Required Validation because of the styles
+  let requiredStyles;
+  let placeHolder;
+  if(required) {
+    requiredStyles = classes.inputRequired;
+    placeHolder = '*';
+  } else {
+    requiredStyles = null;
+    placeHolder = null;
+  }
+
+  return (
+    <input
+      ref={ref}
+      className={cx(classes.inputDefault, requiredStyles , className)}
+      value={state.name}
+      onChange={handleInputChange}
+      placeholder={placeHolder}
+      {...otherProps}
+    />
   );
-
-  return <input
-    ref={ref}
-    className={cx(classes.inputDefault, className)}
-    value={state.name}
-    onChange={handleInputChange}
-    {...otherProps}
-    />;
 });
 
 Input.propTypes = {
   className: PropTypes.string,
-  inputRequired: PropTypes.boolean,
-  type: PropTypes.oneOf(['text', 'submit', 'file', 'checkbox'])
-}
+  required: PropTypes.boolean,
+};
 
 Input.defaultProps = {
-  inputRequired: false,
-  type: 'text'
-}
+  required: false,
+};
 
 export default Input;

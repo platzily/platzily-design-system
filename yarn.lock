@@ -1446,7 +1446,7 @@
     pacote "^11.2.6"
     semver "^7.3.4"
 
-"@lerna/bootstrap@4.0.0":
+"@lerna/bootstrap@4.0.0", "@lerna/bootstrap@^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@lerna/bootstrap/-/bootstrap-4.0.0.tgz#5f5c5e2c6cfc8fcec50cb2fbe569a8c607101891"
   integrity sha512-RkS7UbeM2vu+kJnHzxNRCLvoOP9yGNgkzRdy4UV2hNalD7EP41bLvRVOwRYQ7fhc2QcbhnKNdOBihYRL0LcKtw==
