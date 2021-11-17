@@ -11,9 +11,8 @@ const useStyleSheet = createStyleSheet(
       height: 60,
       padding: 15,
       margin: 0,
+      color: theme.palette.neutral.secondary,
     },
-
-    footerText: {},
   }),
   { key: 'footerWrapper' },
 );

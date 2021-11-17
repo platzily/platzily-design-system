@@ -1,0 +1,90 @@
+# Footer Component
+
+import { Footer } from '../../components/styling/index';
+
+This component will provide you the Footer wrapper.
+
+<div style={{ width: '100%', backgroundColor: '#edf2f7', margin: '50px 0 50px 0', padding: '10px' }}>
+  <Footer />
+</div>
+
+It will be possible to provide 2 styles by props. These can be bgColor or position.
+
+```jsx
+import { Footer } from '@platzily-ui/components';
+import { useTheme } from '@platzily-ui/styling';
+
+
+export default function FooterComponent() {
+  const theme = useTheme();
+
+  return (
+    <Footer bgColor=theme.palette.nautral.secondary position="fixed">
+      © Platzily 2021. All Rights Reserved.
+    </Footer>
+  );
+}
+```
+
+You can provide with attribute style styles to the component like that and also include new components inside the tag:
+
+```jsx
+import { Footer } from '@platzily-ui/components';
+
+export default function ComponentFooter() {
+  return (
+    <Footer style={{ display: flex }}>
+      © Platzily 2021. All Rights Reserved.
+    </Footer>);
+}
+```
+
+If you want to provide many props, is possible to create an object and provide the object inside the style attribute.
+
+```jsx
+import { Footer } from '@platzily-ui/components';
+
+export default function ComponentFooter() {
+  const FooterStyle = {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  };
+
+  return (
+    <Footer style={FooterStyle}>
+      © Platzily 2021. All Rights Reserved.
+    </Footer>);
+}
+```
+The best way to create styles is using createStyleSheet method.
+
+```jsx
+import { Footer } from '@platzily-ui/components';
+import { createStyleSheet } from '@platzily-ui/styling';
+
+
+const useStyleSheet = createStyleSheet(
+  (theme) => ({
+    footerStylesObject: {
+      backgroundColor: theme.palette.neutral.light,
+      position: 'static',
+      height: 60,
+      padding: 15,
+      color: theme.palette.neutral.secondary,
+    },
+
+    
+  }),
+  { key: 'footerStyle' },
+);
+
+export default function ComponentFooter() {
+  const { classes, cx } = useStyleSheet(props);
+
+  return (
+    <Footer className={cx(classes.footerStylesObject, className)} >
+      © Platzily 2021. All Rights Reserved.
+    </Footer>);
+}
+```
