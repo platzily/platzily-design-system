@@ -5,13 +5,13 @@ import { PropTypes } from 'prop-types';
 const useStyleSheet = createStyleSheet(
   (theme) => ({
     buttonsGroupWrapper: {
-      // styles
+      borderRadius: theme.spacing()
     },
     buttonUnselected: {
-      // styles
+      backgroundColor: theme.palette.neutral.light
     },
     buttonSelected: {
-      // styles,
+      backgroundColor: theme.palette.primary.main
     },
   }),
   { key: 'ButtonsGroup' },
@@ -74,7 +74,10 @@ const ButtonsGroup = forwardRef(function ButtonsGroup(props, ref) {
     <div ref={ref} className={cx(classes.buttonsGroup, className)} {...otherProps}>
       <button
         type="button"
-        onClick={(buttonSelectedReducer('weekly'), weeklyActions())}
+        onClick={() => {
+          buttonSelectedReducer('weekly');
+          weeklyActions();
+        }}
         className={selectButtonStyles(state.weeklySelected)}
       >
         Weekly
@@ -82,7 +85,10 @@ const ButtonsGroup = forwardRef(function ButtonsGroup(props, ref) {
 
       <button
         type="button"
-        onClick={(buttonSelectedReducer('monthly'), monthlyActions())}
+        onClick={() => {
+          buttonSelectedReducer('monthly');
+          monthlyActions();
+        }}
         className={selectButtonStyles(state.monthlySelected)}
       >
         Monthly
@@ -90,7 +96,10 @@ const ButtonsGroup = forwardRef(function ButtonsGroup(props, ref) {
 
       <button
         type="button"
-        onClick={(buttonSelectedReducer('yearly'), yearlyActions())}
+        onClick={() => {
+          buttonSelectedReducer('yearly');
+          yearlyActions();
+        }}
         className={selectButtonStyles(state.yearlySelected)}
       >
         Yearly
