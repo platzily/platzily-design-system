@@ -42,7 +42,7 @@ const useStyleSheet = createStyleSheet(
 );
 
 const ButtonsGroup = forwardRef(function ButtonsGroup(props, ref) {
-  const { actions, className, classNameButtons, separationLinesButtonProp, selectedStyles, unselectedStyles, selectedButtonDefault, ...otherProps } = props;
+  const { actions, className, classNameButtons, separationLinesButtonProp, selectedStyles, unselectedStyles, selectedButtonDefault, borderWrapperComponent, ...otherProps } = props;
   const [state, setState] = useState(actions);
   const { classes, cx } = useStyleSheet(props);
   const stateLength = actions.length;
@@ -147,6 +147,7 @@ ButtonsGroup.propTypes = {
       selected: PropTypes.boolean,
     }).isRequired,
   ]),
+  borderWrapperComponent: PropTypes.number,
   className: PropTypes.string,
   classNameButtons: PropTypes.string,
   selectedButtonDefault: PropTypes.number,
