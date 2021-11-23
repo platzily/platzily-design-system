@@ -1,0 +1,317 @@
+# ButtonsGroup Component
+
+import { ButtonsGroup } from '../../components/styling/index';
+
+The `ButtonsGroup Component` will provide to the user a `buttons` wrapper.
+
+<div style={{ margin: '50px 0 50px 0' }}>
+  <ButtonsGroup />
+</div>
+
+### Require pros functionalities
+  **1.** `actions`: Through props will provide a prop named `actions` and the value of this prop will be an `array` composed by `objects`.
+
+  Each object inside the `Array` will be a button. Therefore each button needs:
+
+        - `childrenButton`: This key receives the content inside the button.
+
+        - `selected`: This key receives an boolean that will show which button is selected, it doesn't matter if is true or false. This will provide like a index prop by `selectedButtonDefault`.
+
+        - `onClick`: This key receives a function that will render the function that user wants.
+
+> Note: The `childrenButton`, `selected` and `onClick` are require props.
+
+**2.** Provide the state that will be rendered when the `button` is clicked.
+
+  ```jsx
+  import { ButtonsGroup } from '@platzily-ui/components';
+  import { useState, Fragment } from 'react';
+
+        .
+        .
+        .
+
+  export default function ButtonsGroupComponent() {
+    const [render, setRender] = useState('');
+    const actions = [
+      {
+        childrenButton: 'Button One',
+        selected: false,
+        onClick: () => setRender('One'),
+      },
+      {
+        childrenButton: 'Button Two',
+        selected: false,
+        onClick: () => setRender('Two'),
+      },
+      {
+        childrenButton: 'Button Three',
+        selected: false,
+        onClick: () => setRender('Three'),
+      },
+    ];
+
+
+  return (
+    <Fragment  >
+        <ButtonsGroup
+          actions={state}
+        />
+        <p> Actions {render}</p>
+    </Fragment>
+  );
+}
+  ```
+
+### Not required Props functionalities.
+
+* `selectedButtonDefault` is a `Number` prop that provide the index of ButtonsGroup array that will be true by default. If the user doesn't provide the prop, the first button will be true.
+
+```jsx
+        .
+        .
+        .
+    <ButtonsGroup
+      actions={state}
+      setState={setState}
+      selectedButtonDefault = { 1 }
+    />
+        .
+        .
+        .
+    ```
+
+### The usability of that component should looks like:
+
+```jsx
+import { ButtonsGroup } from '@platzily-ui/components';
+import { useState, Fragment } from 'react';
+
+export default function ButtonsGroupComponent() {
+const [render, setRender] = useState('');
+
+const actions = [
+      {
+        childrenButton: 'Button One',
+        selected: false,
+        onClick: () => setRender('One'),
+      },
+      {
+        childrenButton: 'Button Two',
+        selected: false,
+        onClick: () => setRender('Two'),
+      },
+      {
+        childrenButton: 'Button Three',
+        selected: false,
+        onClick: () => setRender('Three'),
+      },
+    ];
+
+
+  return (
+    <Fragment  >
+        <ButtonsGroup
+          actions={state}
+          selectedButtonDefault = { 1 }
+        />
+        <p> Actions {render}</p>
+    </Fragment>
+  );
+}
+```
+
+### Adding Styles
+
+For this you need to import `createStyleSheet` from '@platzily-ui/styling' and use it like that.
+
+```jsx
+import { ButtonsGroup } from '@platzily-ui/components';
+import { useState, Fragment } from 'react';
+import { createStyleSheet } from '@platzily-ui/styling';
+
+const useStyleSheet = createStyleSheet(
+  (theme, props) => ({
+    buttonsGroupWrapper: {
+      borderColor: props || theme.palette.neutral.secondary,
+    },
+  }),
+  { key: 'ButtonsGroupImplementation' },
+);
+export default function ButtonsGroupComponent(props) {
+  const { classes } = useStyleSheet(props);
+
+
+  return (
+        <ButtonsGroup
+          className={ classes.buttonsGroupWrapper }
+        />
+  );
+
+```
+
+### Generic Styles Props
+
+The component can receives by props the next styles:
+
+  1. `borderWrapperComponent`: This is the external radius of the wrapper ButtonsGroup Component.
+
+    >  `borderWrapperComponent` receives just a `Number`
+
+    ```jsx
+        .
+        .
+        .
+    <ButtonsGroup
+      actions={state}
+      borderWrapperComponent = { 15 }
+    />
+        .
+        .
+        .
+    ```
+
+  2. `separationLinesButtonProp`: This is the separation lines between the buttons.
+
+  3. `className`: Provide styles to the wrapper component.
+
+  4. `classNameButtons` Provide styles to the buttons.
+
+  5. `selectedStyles` Provide styles to selected Button.
+
+  6. `unelectedStyles` Provide styles to unselected buttons.
+
+    >  `separationLinesButtonProp`, `className`, `classNameButtons`, `selectedStyles` and `unelectedStyles` receives just a `string` by the useStyleSheet implementation.
+
+  ```jsx
+
+        .
+        .
+        .
+
+      const useStyleSheet = createStyleSheet(
+        (theme, props) => ({
+          buttonsGroupWrapper: {
+            borderStyle: 'solid',
+            borderColor: theme.palette.neutral.secondary,
+            borderWidth: 1,
+            borderRadius: 5,
+          },
+          separationLinesButton: {
+            borderRightStyle: 'solid',
+            borderRightColor: theme.palette.neutral.secondary,
+            borderRightWidth: 1,
+          },
+          buttonsStyles:{
+            padding: '5px 10px',
+          },
+          buttonSelected: {
+            backgroundColor: theme.palette.primary.main,
+            color: theme.palette.neutral.light
+          },
+          buttonUnselected: {
+            backgroundColor: theme.palette.neutral.light,
+            color: theme.palette.neutral.dark
+          },
+        }),
+        { key: 'ButtonsGroupImplementation' },
+      );
+        .
+        .
+        .
+export default function ButtonsGroupComponent(props) {
+  const { classes } = useStyleSheet(props);
+  const [state, setState] = useState(actions);
+
+  return (
+    <ButtonsGroup
+      actions={state}
+      separationLinesButtonProp = {classes.separationLinesButton}
+      className={classes.buttonsGroupWrapper}
+      classNameButtons={classes.buttonsStyles}
+      selectedStyles={classes.buttonSelected}
+      unselectedStyles={classes.buttonUnselected}
+    />
+  );
+};
+        .
+        .
+        .
+    ```
+
+### The finally usability and styling of the component should looks like:
+
+```jsx
+import { ButtonsGroup } from '@platzily-ui/components';
+import { useState, Fragment } from 'react';
+import { createStyleSheet } from '@platzily-ui/styling';
+
+const useStyleSheet = createStyleSheet(
+  (theme, props) => ({
+    buttonsGroupWrapper: {
+      borderStyle: 'solid',
+      borderColor: theme.palette.neutral.secondary,
+      borderWidth: 1,
+      borderRadius: 5,
+    },
+    separationLinesButton: {
+      borderRightStyle: 'solid',
+      borderRightColor: theme.palette.neutral.secondary,
+      borderRightWidth: 1,
+    },
+    buttonsStyles:{
+      padding: '5px 10px',
+    },
+    buttonSelected: {
+      backgroundColor: theme.palette.primary.main,
+      color: theme.palette.neutral.light
+    },
+    buttonUnselected: {
+      backgroundColor: theme.palette.neutral.light,
+      color: theme.palette.neutral.dark
+    },
+  }),
+  { key: 'ButtonsGroupImplementation' },
+);
+
+export default function ButtonsGroupComponent() {
+  const { classes } = useStyleSheet(props);
+
+  const [render, setRender] = useState('');
+
+  const actions = [
+      {
+        childrenButton: 'Button One',
+        selected: false,
+        onClick: () => setRender('One'),
+      },
+      {
+        childrenButton: 'Button Two',
+        selected: false,
+        onClick: () => setRender('Two'),
+      },
+      {
+        childrenButton: 'Button Three',
+        selected: false,
+        onClick: () => setRender('Three'),
+      },
+    ];
+
+  const [state, setState] = useState(actions);
+
+  return (
+    <Fragment  >
+        <ButtonsGroup
+          actions={state}
+          borderWrapperComponent = { 15 }
+          separationLinesButtonProp = {classes.separationLinesButton}
+          className={classes.buttonsGroupWrapper}
+          classNameButtons={classes.buttonsStyles}
+          selectedStyles={classes.buttonSelected}
+          unselectedStyles={classes.buttonUnselected}
+        />
+        <p> Actions {render}</p>
+    </Fragment>
+  );
+}
+```

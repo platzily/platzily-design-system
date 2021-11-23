@@ -5,6 +5,7 @@ import UseThemeStyledBoxComponent from './UseThemeStyledBox';
 import ColorComponent from './ColorComponent';
 
 import HeaderComponent from '../Header/Header';
+import ButtonsGroupComponent from '../ButtonsGroup/ButtonsGroup';
 
 import { defaultTheme, customTheme } from './theme';
 
@@ -55,7 +56,15 @@ export function Color({ color, colorType }) {
 export function Header() {
   return (
     <ThemeProvider theme={defaultTheme}>
-      <HeaderComponent  />
+      <HeaderComponent />
+    </ThemeProvider>
+  );
+}
+
+export function ButtonsGroup() {
+  return (
+    <ThemeProvider theme={defaultTheme}>
+      <ButtonsGroupComponent />
     </ThemeProvider>
   );
 }
