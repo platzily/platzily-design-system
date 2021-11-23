@@ -1,41 +1,43 @@
 import { forwardRef } from 'react';
 import PropTypes, { node, number, string } from 'prop-types';
 import { createStyleSheet } from '@platzily-ui/styling';
-import { Paper } from '../Paper';
+import { Paper } from '../index';
 
+const useStyleSheet = createStyleSheet((theme) => {
+  return {
+    header: {
+      padding: theme.spacing(),
+      minWidth: 302,
+      borderBottom: 1,
+      borderStyle: 'solid',
+      borderColor: theme.palette.neutral.secondary,
+    },
+    body: {
+      padding: theme.spacing(),
+      minWidth: 302,
+      minHeight: 190,
+    },
+    nopadding: {
+      padding: '0',
+    },
+  };
+});
 
-const useStyleSheet = createStyleSheet(
-  (theme) => {
-    return {
-      header: {
-        padding: 5,
-        width: 302,
-        borderBottom: 1,
-        borderStyle: 'solid',
-        borderColor: theme.palette.neutral.dark
-      },
-      body: {
-        padding: 5,
-        width: 302,
-        minHeight: 190,
-      }
-    };
-  }
-);
-
-const Card = forwardRef(function Card(ref, props) {
-  const { header, body } = props;
+const Card = forwardRef(function Card(props, ref) {
+  const { classes, cx } = useStyleSheet();
+  const { children, header, className, ...otherProps } = props;
   return (
-    <Paper elevation='2' ref={ref} {...props}>
-      <div>{header}</div>
-      <div>{body}</div>
+    <Paper ref={ref} {...otherProps} padding="0">
+      <div className={classes.header}>{header}</div>
+      <div className={cx(classes.body, className)}>{children}</div>
     </Paper>
   );
 });
 
 Card.propTypes = {
-  body: PropTypes.oneOfType([node, string, number]),
-  header: PropTypes.oneOfType([node, string, number]),
+  children: PropTypes.oneOfType([node, number, string]),
+  className: PropTypes.string,
+  header: PropTypes.oneOfType([node, number, string]),
 };
 
 export default Card;

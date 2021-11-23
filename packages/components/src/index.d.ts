@@ -12,3 +12,6 @@ export { default as Button } from './Button';
 
 export * from './SvgIcon';
 export { default as SvgIcon } from './SvgIcon';
+
+export * from './Card';
+export { default as Card } from './Card';
