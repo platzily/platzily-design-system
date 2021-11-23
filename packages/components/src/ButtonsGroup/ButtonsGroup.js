@@ -1,4 +1,4 @@
-import { forwardRef, } from 'react';
+import { forwardRef } from 'react';
 import { createStyleSheet } from '@platzily-ui/styling';
 import { PropTypes } from 'prop-types';
 
@@ -42,11 +42,11 @@ const useStyleSheet = createStyleSheet(
 );
 
 const ButtonsGroup = forwardRef(function ButtonsGroup(props, ref) {
-  const { actions, className, classNameButtons, separationLinesButtonProp, setState, ...otherProps } = props;
+  const { actions, className, classNameButtons, separationLinesButtonProp, selectedStyles, unselectedStyles,  setState, ...otherProps } = props;
   const { classes, cx } = useStyleSheet(props);
 
   const selectButtonStyles = (stateButton) => {
-    return stateButton ? classes.buttonSelected : classes.buttonUnselected;
+    return stateButton ? (selectedStyles || classes.buttonSelected) : (unselectedStyles || classes.buttonUnselected);
   };
 
   const cornerButtonsGroup = (index) => {
@@ -83,7 +83,7 @@ const ButtonsGroup = forwardRef(function ButtonsGroup(props, ref) {
   return (
     <div ref={ref} className={cx(classes.buttonsGroupWrapper, className)} {...otherProps}>
       {actions.map((button, index) => {
-        const { selected, children } = button;
+        const { selected, childrenButton } = button;
         return (
           <button
             type="button"
@@ -97,7 +97,7 @@ const ButtonsGroup = forwardRef(function ButtonsGroup(props, ref) {
               classNameButtons
             )}
           >
-            {children}
+            {childrenButton}
           </button>
         );
       })}
@@ -110,14 +110,16 @@ ButtonsGroup.propTypes = {
     PropTypes.arrayOf(PropTypes.object).isRequired,
     PropTypes.shape({
       buttonAction: PropTypes.func,
-      children: PropTypes.element,
+      childrenButton: PropTypes.element,
       selected: PropTypes.boolean,
     }).isRequired,
   ]),
   className: PropTypes.string,
   classNameButtons: PropTypes.string,
+  selectedStyles: PropTypes.string,
   separationLinesButtonProp: PropTypes.string,
   setState: PropTypes.func,
+  unselectedStyles: PropTypes.string,
 };
 
 ButtonsGroup.defaultProps = {

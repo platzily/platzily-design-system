@@ -14,7 +14,7 @@ const useStyleSheet = createStyleSheet(
 const getChildrenRender = (state) => {
 
   const childrenRender = state.map((element) => (
-    element.selected && element.children
+    element.selected && element.childrenButton
   ));
 
   return childrenRender;
@@ -25,17 +25,15 @@ export default function ButtonsGroupComponent(props) {
 
   const actions = [
     {
-      children: 'weekly',
+      childrenButton: 'Button One',
       selected: true,
     },
-
     {
-      children: 'monthly',
+      childrenButton: 'Button Two',
       selected: false,
     },
-
     {
-      children: 'yearly',
+      childrenButton: 'Button Three',
       selected: false,
     },
   ];
@@ -44,13 +42,15 @@ export default function ButtonsGroupComponent(props) {
 
   return (
     <Fragment  >
-      <ButtonsGroup
-        actions={state}
-        setState={setState}
-        className={ classes.buttonsGroupWrapper }
-        classNameButtons = { classes.ButtonsStyles }
-      />
-      <p>{getChildrenRender(state)}</p>
+      <span style={{ display:'flex', justifyContent:'center', margin:'20px' }}>
+        <ButtonsGroup
+          actions={state}
+          setState={setState}
+          className={ classes.buttonsGroupWrapper }
+          classNameButtons = { classes.ButtonsStyles }
+        />
+      </span>
+      <p style={{ textAlign:'center', margin:'20px' }}>{getChildrenRender(state)}  Action</p>
     </Fragment>
   );
 
