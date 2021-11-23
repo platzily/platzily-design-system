@@ -9,14 +9,14 @@ The `ButtonsGroup Component` will provide to the user a `buttons` wrapper.
   <ButtonsGroup />
 </div>
 
-### Require to provide:
+### Require pros functionalities
   **1.** `actions`: Through props will provide a prop named `actions` and the value of this prop will be an state that contains an `array` composed by `objects`.
 
   Each object inside the `Array State` will be a button. Therefore each button needs:
 
         - `childrenButton`: This key receives the content inside the button.
 
-        - `selected`: This key receives an boolean that will show which button is selected.
+        - `selected`: This key receives an boolean that will show which button is selected, it doesn't matter if is true or false. This will provide like a index prop.
 
 > Note: The `childrenButton` and `selected` are require props.
 
@@ -36,7 +36,7 @@ The `ButtonsGroup Component` will provide to the user a `buttons` wrapper.
     const actions = [
       {
         childrenButton: 'Button One',
-        selected: true,
+        selected: false,
       },
       {
         childrenButton: 'Button Two',
@@ -64,7 +64,7 @@ The `ButtonsGroup Component` will provide to the user a `buttons` wrapper.
   );
 }
   ```
-The function render of each button will be handled by the `selected` value inside the state of each `button`.
+**3.** The function render of each button will be handled by the `selected` value inside the state of each `button`.
 
 ```jsx
 import { ButtonsGroup } from '@platzily-ui/components';
@@ -95,6 +95,23 @@ export default function ButtonsGroupComponent() {
     );
   }
 ```
+### Not required Props functionalities.
+
+* `selectedButtonDefault` is `Number` prop that provide the index of ButtonsGroup array that will be true by default. If the user doesn't provide the prop, de true button will be the first.
+
+```jsx
+        .
+        .
+        .
+    <ButtonsGroup
+      actions={state}
+      setState={setState}
+      selectedButtonDefault = { 1 }
+    />
+        .
+        .
+        .
+    ```
 
 ### The usability of that component should looks like:
 

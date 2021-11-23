@@ -1,4 +1,4 @@
-import { forwardRef } from 'react';
+import { forwardRef, useEffect } from 'react';
 import { createStyleSheet } from '@platzily-ui/styling';
 import { PropTypes } from 'prop-types';
 
@@ -42,15 +42,45 @@ const useStyleSheet = createStyleSheet(
 );
 
 const ButtonsGroup = forwardRef(function ButtonsGroup(props, ref) {
-  const { actions, className, classNameButtons, separationLinesButtonProp, selectedStyles, unselectedStyles,  setState, ...otherProps } = props;
+  const { actions, className, classNameButtons, separationLinesButtonProp, selectedStyles, unselectedStyles, selectedButtonDefault,  setState, ...otherProps } = props;
   const { classes, cx } = useStyleSheet(props);
+  const actionsLength = actions.length;
+
+  useEffect(() => {
+    if (selectedButtonDefault <= (actions.length - 1)) {
+      setState(actions.map((element, indexMap) => (
+        (selectedButtonDefault === indexMap)
+          ? {
+            ...element,
+            selected: true,
+          }
+          : {
+            ...element,
+            selected: false,
+          }
+      )));
+    } else {
+      setState(actions.map((element, indexMap) => (
+        (indexMap === 0)
+          ? {
+            ...element,
+            selected: true,
+          }
+          : {
+            ...element,
+            selected: false,
+          }
+      )));
+    }
+  },[]);
+
+
 
   const selectButtonStyles = (stateButton) => {
     return stateButton ? (selectedStyles || classes.buttonSelected) : (unselectedStyles || classes.buttonUnselected);
   };
 
   const cornerButtonsGroup = (index) => {
-    const actionsLength = actions.length;
     let styleButton;
     if (index === 0) { styleButton = classes.firstButtonStyle; }
     if (index === (actionsLength - 1)) { styleButton = classes.lastButtonStyle; }
@@ -59,7 +89,6 @@ const ButtonsGroup = forwardRef(function ButtonsGroup(props, ref) {
   };
 
   const separationLinesButton = (index) => {
-    const actionsLength = actions.length;
     let separationStyle;
     if (index !== (actionsLength - 1)) { separationStyle = separationLinesButtonProp || classes.separationLinesButton; }
 
@@ -116,6 +145,7 @@ ButtonsGroup.propTypes = {
   ]),
   className: PropTypes.string,
   classNameButtons: PropTypes.string,
+  selectedButtonDefault: PropTypes.number,
   selectedStyles: PropTypes.string,
   separationLinesButtonProp: PropTypes.string,
   setState: PropTypes.func,

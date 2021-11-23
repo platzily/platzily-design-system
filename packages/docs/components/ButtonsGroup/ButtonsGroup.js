@@ -26,7 +26,7 @@ export default function ButtonsGroupComponent(props) {
   const actions = [
     {
       childrenButton: 'Button One',
-      selected: true,
+      selected: false,
     },
     {
       childrenButton: 'Button Two',
