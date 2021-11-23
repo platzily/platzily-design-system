@@ -1,4 +1,4 @@
-import { forwardRef, useEffect } from 'react';
+import { forwardRef, useEffect, useState } from 'react';
 import { createStyleSheet } from '@platzily-ui/styling';
 import { PropTypes } from 'prop-types';
 
@@ -42,13 +42,14 @@ const useStyleSheet = createStyleSheet(
 );
 
 const ButtonsGroup = forwardRef(function ButtonsGroup(props, ref) {
-  const { actions, className, classNameButtons, separationLinesButtonProp, selectedStyles, unselectedStyles, selectedButtonDefault,  setState, ...otherProps } = props;
+  const { actions, className, classNameButtons, separationLinesButtonProp, selectedStyles, unselectedStyles, selectedButtonDefault, ...otherProps } = props;
+  const [state, setState] = useState(actions);
   const { classes, cx } = useStyleSheet(props);
-  const actionsLength = actions.length;
+  const stateLength = actions.length;
 
   useEffect(() => {
-    if (selectedButtonDefault <= (actions.length - 1)) {
-      setState(actions.map((element, indexMap) => (
+    if (selectedButtonDefault <= (state.length - 1)) {
+      setState(state.map((element, indexMap) => (
         (selectedButtonDefault === indexMap)
           ? {
             ...element,
@@ -60,7 +61,7 @@ const ButtonsGroup = forwardRef(function ButtonsGroup(props, ref) {
           }
       )));
     } else {
-      setState(actions.map((element, indexMap) => (
+      setState(state.map((element, indexMap) => (
         (indexMap === 0)
           ? {
             ...element,
@@ -83,20 +84,20 @@ const ButtonsGroup = forwardRef(function ButtonsGroup(props, ref) {
   const cornerButtonsGroup = (index) => {
     let styleButton;
     if (index === 0) { styleButton = classes.firstButtonStyle; }
-    if (index === (actionsLength - 1)) { styleButton = classes.lastButtonStyle; }
+    if (index === (stateLength - 1)) { styleButton = classes.lastButtonStyle; }
 
     return styleButton;
   };
 
   const separationLinesButton = (index) => {
     let separationStyle;
-    if (index !== (actionsLength - 1)) { separationStyle = separationLinesButtonProp || classes.separationLinesButton; }
+    if (index !== (stateLength - 1)) { separationStyle = separationLinesButtonProp || classes.separationLinesButton; }
 
     return separationStyle;
   };
 
   function setStateRender(index) {
-    setState(actions.map((element, indexMap) => (
+    setState(state.map((element, indexMap) => (
       (index === indexMap)
         ? {
           ...element,
@@ -111,13 +112,16 @@ const ButtonsGroup = forwardRef(function ButtonsGroup(props, ref) {
 
   return (
     <div ref={ref} className={cx(classes.buttonsGroupWrapper, className)} {...otherProps}>
-      {actions.map((button, index) => {
-        const { selected, childrenButton } = button;
+      {state.map((button, index) => {
+        const { selected, childrenButton, onClick } = button;
         return (
           <button
             type="button"
             key={index}
-            onClick={() => setStateRender(index)}
+            onClick={() => {
+              setStateRender(index);
+              onClick();
+            }}
             className={cx(
               selectButtonStyles(selected),
               cornerButtonsGroup(index),
@@ -138,8 +142,8 @@ ButtonsGroup.propTypes = {
   actions: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.object).isRequired,
     PropTypes.shape({
-      buttonAction: PropTypes.func,
       childrenButton: PropTypes.element,
+      onClick: PropTypes.func,
       selected: PropTypes.boolean,
     }).isRequired,
   ]),
@@ -148,7 +152,6 @@ ButtonsGroup.propTypes = {
   selectedButtonDefault: PropTypes.number,
   selectedStyles: PropTypes.string,
   separationLinesButtonProp: PropTypes.string,
-  setState: PropTypes.func,
   unselectedStyles: PropTypes.string,
 };
 

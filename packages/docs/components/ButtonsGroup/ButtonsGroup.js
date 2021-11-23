@@ -1,5 +1,5 @@
 import { ButtonsGroup } from '@platzily-ui/components';
-import { useState, Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import { createStyleSheet } from '@platzily-ui/styling';
 
 const useStyleSheet = createStyleSheet(
@@ -11,49 +11,40 @@ const useStyleSheet = createStyleSheet(
   { key: 'ButtonsGroupImplementation' },
 );
 
-const getChildrenRender = (state) => {
-
-  const childrenRender = state.map((element) => (
-    element.selected && element.childrenButton
-  ));
-
-  return childrenRender;
-};
-
 export default function ButtonsGroupComponent(props) {
   const { classes } = useStyleSheet(props);
+
+  const [render, setRender] = useState('');
 
   const actions = [
     {
       childrenButton: 'Button One',
       selected: false,
+      onClick: () => setRender('One'),
     },
     {
       childrenButton: 'Button Two',
       selected: false,
+      onClick: () => setRender('Two'),
     },
     {
       childrenButton: 'Button Three',
       selected: false,
+      onClick: () => setRender('Three'),
     },
   ];
 
-  const [state, setState] = useState(actions);
-
   return (
-    <Fragment  >
+    <Fragment >
       <span style={{ display:'flex', justifyContent:'center', margin:'20px' }}>
         <ButtonsGroup
-          actions={state}
-          setState={setState}
+          actions={actions}
           className={ classes.buttonsGroupWrapper }
           classNameButtons = { classes.ButtonsStyles }
         />
       </span>
-      <p style={{ textAlign:'center', margin:'20px' }}>{getChildrenRender(state)}  Action</p>
+      <p style={{ textAlign:'center', margin:'20px' }}> Actions {render}</p>
     </Fragment>
   );
-
-
 }
 
