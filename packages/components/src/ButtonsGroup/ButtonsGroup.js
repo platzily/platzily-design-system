@@ -1,123 +1,129 @@
-import { forwardRef, useState } from 'react';
+import { forwardRef, } from 'react';
 import { createStyleSheet } from '@platzily-ui/styling';
 import { PropTypes } from 'prop-types';
 
 const useStyleSheet = createStyleSheet(
-  (theme) => ({
+  (theme, { borderWrapperComponent }) => ({
     buttonsGroupWrapper: {
-      borderRadius: theme.spacing()
+      width: 'auto',
+      height: 'auto',
+      display: 'inline-block',
+      borderStyle: 'solid',
+      borderColor: theme.palette.neutral.secondary,
+      borderWidth: 1,
+      borderRadius: borderWrapperComponent || theme.spacing(),
+    },
+    firstButtonStyle:{
+      borderTopLeftRadius: borderWrapperComponent || theme.spacing(),
+      borderBottomLeftRadius: borderWrapperComponent || theme.spacing(),
+    },
+    lastButtonStyle:{
+      borderTopRightRadius: borderWrapperComponent || theme.spacing(),
+      borderBottomRightRadius: borderWrapperComponent || theme.spacing(),
+    },
+    separationLinesButton: {
+      borderRightStyle: 'solid',
+      borderRightColor: theme.palette.neutral.secondary,
+      borderRightWidth: 1,
+    },
+    buttonsStyles:{
+      padding: '5px 10px',
     },
     buttonUnselected: {
-      backgroundColor: theme.palette.neutral.light
+      backgroundColor: theme.palette.neutral.light,
+      color: theme.palette.neutral.dark
     },
     buttonSelected: {
-      backgroundColor: theme.palette.primary.main
+      backgroundColor: theme.palette.primary.main,
+      color: theme.palette.neutral.light
     },
   }),
   { key: 'ButtonsGroup' },
 );
 
 const ButtonsGroup = forwardRef(function ButtonsGroup(props, ref) {
-  const { weeklyActions, monthlyActions, yearlyActions, className, ...otherProps } = props;
+  const { actions, className, classNameButtons, separationLinesButtonProp, setState, ...otherProps } = props;
   const { classes, cx } = useStyleSheet(props);
 
-  const initialState = {
-    weeklySelected: true,
-    monthlySelected: false,
-    yearlySelected: false,
-  };
-
-  const [state, setState] = useState(initialState);
-
-  const buttonSelectedReducer = (payload) => {
-    switch (payload) {
-    case 'weekly':
-      setState({
-        ...state,
-        weeklySelected: true,
-        monthlySelected: false,
-        yearlySelected: false,
-      });
-      break;
-
-    case 'monthly':
-      setState({
-        ...state,
-        weeklySelected: false,
-        monthlySelected: true,
-        yearlySelected: false,
-      });
-      break;
-
-    case 'yearly':
-      setState({
-        ...state,
-        weeklySelected: false,
-        monthlySelected: false,
-        yearlySelected: true,
-      });
-      break;
-
-    default:
-      return state;
-    }
-
-    return state;
-  };
-
   const selectButtonStyles = (stateButton) => {
-    const styleButton = stateButton ? classes.buttonSelected : classes.buttonUnselected;
+    return stateButton ? classes.buttonSelected : classes.buttonUnselected;
+  };
+
+  const cornerButtonsGroup = (index) => {
+    const actionsLength = actions.length;
+    let styleButton;
+    if (index === 0) { styleButton = classes.firstButtonStyle; }
+    if (index === (actionsLength - 1)) { styleButton = classes.lastButtonStyle; }
+
     return styleButton;
   };
 
+  const separationLinesButton = (index) => {
+    const actionsLength = actions.length;
+    let separationStyle;
+    if (index !== (actionsLength - 1)) { separationStyle = separationLinesButtonProp || classes.separationLinesButton; }
+
+    return separationStyle;
+  };
+
+  function setStateRender(index) {
+    setState(actions.map((element, indexMap) => (
+      (index === indexMap)
+        ? {
+          ...element,
+          selected: true,
+        }
+        : {
+          ...element,
+          selected: false,
+        }
+    )));
+  };
+
   return (
-    <div ref={ref} className={cx(classes.buttonsGroup, className)} {...otherProps}>
-      <button
-        type="button"
-        onClick={() => {
-          buttonSelectedReducer('weekly');
-          weeklyActions();
-        }}
-        className={selectButtonStyles(state.weeklySelected)}
-      >
-        Weekly
-      </button>
-
-      <button
-        type="button"
-        onClick={() => {
-          buttonSelectedReducer('monthly');
-          monthlyActions();
-        }}
-        className={selectButtonStyles(state.monthlySelected)}
-      >
-        Monthly
-      </button>
-
-      <button
-        type="button"
-        onClick={() => {
-          buttonSelectedReducer('yearly');
-          yearlyActions();
-        }}
-        className={selectButtonStyles(state.yearlySelected)}
-      >
-        Yearly
-      </button>
+    <div ref={ref} className={cx(classes.buttonsGroupWrapper, className)} {...otherProps}>
+      {actions.map((button, index) => {
+        const { selected, children } = button;
+        return (
+          <button
+            type="button"
+            key={index}
+            onClick={() => setStateRender(index)}
+            className={cx(
+              selectButtonStyles(selected),
+              cornerButtonsGroup(index),
+              separationLinesButton(index),
+              classes.buttonsStyles,
+              classNameButtons
+            )}
+          >
+            {children}
+          </button>
+        );
+      })}
     </div>
   );
 });
 
 ButtonsGroup.propTypes = {
+  actions: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.object).isRequired,
+    PropTypes.shape({
+      buttonAction: PropTypes.func,
+      children: PropTypes.element,
+      selected: PropTypes.boolean,
+    }).isRequired,
+  ]),
   className: PropTypes.string,
-  monthlyActions: PropTypes.func,
-  position: PropTypes.oneOf(['static', 'relative', 'absolute', 'fixed', 'sticky', 'unset']),
-  weeklyActions: PropTypes.func,
-  yearlyActions: PropTypes.func,
+  classNameButtons: PropTypes.string,
+  separationLinesButtonProp: PropTypes.string,
+  setState: PropTypes.func,
 };
 
 ButtonsGroup.defaultProps = {
-  position: 'unset',
+  className: '',
+  separationLinesButtonProp: undefined,
+
 };
 
 export default ButtonsGroup;

@@ -1,41 +1,59 @@
 import { ButtonsGroup } from '@platzily-ui/components';
-import { Fragment, useState } from 'react';
+import { useState, Fragment } from 'react';
+import { createStyleSheet } from '@platzily-ui/styling';
 
-export default function ButtonsGroupComponent() {
-  const headerStyle = {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-around',
-  };
+const useStyleSheet = createStyleSheet(
+  (theme) => ({
+    buttonsGroupWrapper: {
+      borderColor: theme.palette.neutral.secondary,
+    },
+  }),
+  { key: 'ButtonsGroupImplementation' },
+);
 
-  const [state, setState] = useState('weekly');
+const getChildrenRender = (state) => {
 
-  const weekly = () => {
-    setState('weekly');
-    return state;
-  };
+  const childrenRender = state.map((element) => (
+    element.selected && element.children
+  ));
 
-  const monthly = () => {
-    setState('monthly');
-    return state;
-  };
+  return childrenRender;
+};
 
-  const yearly = () => {
-    setState('yearly');
-    return state;
-  };
+export default function ButtonsGroupComponent(props) {
+  const { classes } = useStyleSheet(props);
+
+  const actions = [
+    {
+      children: 'weekly',
+      selected: true,
+    },
+
+    {
+      children: 'monthly',
+      selected: false,
+    },
+
+    {
+      children: 'yearly',
+      selected: false,
+    },
+  ];
+
+  const [state, setState] = useState(actions);
 
   return (
-    <Fragment>
+    <Fragment  >
       <ButtonsGroup
-        weeklyActions={weekly}
-        monthlyActions={monthly}
-        yearlyActions={yearly}
-        style={headerStyle}
+        actions={state}
+        setState={setState}
+        className={ classes.buttonsGroupWrapper }
+        classNameButtons = { classes.ButtonsStyles }
       />
-      <p style={headerStyle}>
-        {state}
-      </p>
+      <p>{getChildrenRender(state)}</p>
     </Fragment>
   );
+
+
 }
+
