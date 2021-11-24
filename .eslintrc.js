@@ -81,7 +81,8 @@ module.exports = {
     'react/no-invalid-html-attribute': 'off',
     'react/no-unused-class-component-methods': 'off',
     'jsx-a11y/alt-text': 'off',
-    'react/function-component-definition': 'off'
+    'react/function-component-definition': 'off',
+    'no-restricted-exports': 'off'
   },
   settings: {
     'import/resolver': {
