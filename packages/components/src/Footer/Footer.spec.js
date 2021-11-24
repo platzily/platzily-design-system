@@ -3,20 +3,21 @@ import { ThemeProvider, createTheme } from '@platzily-ui/styling';
 import Footer from './Footer';
 
 describe('@Components/Footer', () => {
-  it('Given the Footer Component, when the props provide an object within the styles attribute then the component will take those styles ', () => {
+  it('Given the Footer Component, when the props provide bgColor prop with a color then the component will take background-color and his value. ', () => {
     // arrange
     const theme = createTheme();
     const { getByRole } = render(
       <ThemeProvider theme={theme}>
-        <Footer role="banner" style={{ color: theme.palette.secondary.main }} />
+        <Footer role="banner" bgColor={theme.palette.secondary.main} />
       </ThemeProvider>,
     );
 
     // act
     const FooterTestedText = getByRole('banner');
+
     // assert
     expect(FooterTestedText).toBeDefined();
-    expect(FooterTestedText).toHaveStyle(`color:#97c343`);
+    expect(FooterTestedText).toHaveStyle(`background-color:#97c343`);
   });
 
   it('Given the Footer Component, when the user provide children inside the component then the component will take it', () => {
