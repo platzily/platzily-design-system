@@ -3,10 +3,9 @@ import { createStyleSheet } from '@platzily-ui/styling';
 import PropTypes from 'prop-types';
 
 const useStyleSheet = createStyleSheet(
-  (theme, { bgColor, position }) => ({
+  (theme, { bgColor }) => ({
     footer: {
       backgroundColor: bgColor || theme.palette.neutral.light,
-      position,
       width: '100%',
       height: 60,
       padding: 15,
@@ -14,11 +13,11 @@ const useStyleSheet = createStyleSheet(
       color: theme.palette.neutral.secondary,
     },
   }),
-  { key: 'footerWrapper' },
+  { key: 'footer' },
 );
 
 const Footer = forwardRef(function Footer(props, ref) {
-  const { bgColor, position, className, ...otherProps } = props;
+  const { bgColor, className, ...otherProps } = props;
   const { classes, cx } = useStyleSheet(props);
 
   return <footer
@@ -32,11 +31,6 @@ const Footer = forwardRef(function Footer(props, ref) {
 Footer.propTypes = {
   bgColor: PropTypes.string,
   className: PropTypes.string,
-  position: PropTypes.oneOf(['static', 'relative', 'absolute', 'fixed', 'sticky', 'unset']),
-};
-
-Footer.defaultProps = {
-  position: 'fixed',
 };
 
 export default Footer;

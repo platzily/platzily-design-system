@@ -1,20 +1,26 @@
 import { Footer } from '@platzily-ui/components';
-import { useTheme } from '@platzily-ui/styling';
+import { createStyleSheet } from '@platzily-ui/styling';
+
+const useStyleSheet = createStyleSheet(
+  (theme) => ({
+    footer:{
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'right',
+      marginTop: 40,
+      color: theme.palette.neutral.secondary
+    }
+  }),
+  { key: 'footer' }
+);
 
 export default function FooterComponent() {
-  const theme = useTheme();
 
-  const headerStyle = {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'right',
-    marginTop: 40,
-    color: theme.palette.neutral.secondary
-  };
+  const { classes } = useStyleSheet();
 
   return (
-    <Footer style={headerStyle} position="static">
-      © Platzily 2021. All Rights Reserved.
+    <Footer className={classes.footer} >
+      © Platzily-UI 2021. All Rights Reserved.
     </Footer>
   );
 }

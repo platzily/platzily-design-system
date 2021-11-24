@@ -19,22 +19,6 @@ describe('@Components/Footer', () => {
     expect(FooterTestedText).toHaveStyle(`color:#97c343`);
   });
 
-  it('Given the Footer Component, when the props provide position attribute then the component will take those style', () => {
-    // arrange
-    const { getByRole } = render(
-      <ThemeProvider theme={createTheme()}>
-        <Footer role="banner"  position={'static'}/>
-      </ThemeProvider>,
-    );
-
-    // act
-    const FooterTestedText = getByRole('banner');
-
-    // assert
-    expect(FooterTestedText).toBeDefined();
-    expect(FooterTestedText).toHaveStyle(`position:static`);
-  });
-
   it('Given the Footer Component, when the user provide children inside the component then the component will take it', () => {
     // arrange
     const { getByRole } = render(
