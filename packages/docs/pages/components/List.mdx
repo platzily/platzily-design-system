@@ -1,0 +1,54 @@
+import ListItemComponent from '../../components/ListItem/ListItem';
+import { Dashboard, Edit, Close, UsersAdd } from '@platzily-ui/icons';
+
+## List item
+
+It the element into a list and could have some interactions and states, could contain images, icons and text. 
+
+<div style={{ display: 'grid', gridTemplateColumns: 'auto auto auto auto', justifyContent: 'center' }}>
+  <ListItemComponent>
+    <Dashboard size="lg" />
+    <span>Icon + Text</span>
+  </ListItemComponent>
+
+  <ListItemComponent disabled>
+    <Close size="lg" />
+    <span>Disabled</span>
+  </ListItemComponent>
+
+  <ListItemComponent>
+    <span>Only Text</span>
+  </ListItemComponent>
+
+  <ListItemComponent>
+    <Edit size="lg" />
+  </ListItemComponent>
+</div>
+
+
+Example:
+
+```jsx
+import { UsersAdd } from '@platzily-ui/icons';
+import { ListItem } from '@platzily-ui/components';
+
+const myComponent = () => {
+  return(
+    <List>
+      <ListItem>
+        <UsersAdd size="lg" />
+        <span>New User</span>
+      </ListItem>
+    </List>
+  )
+};
+```
+
+Result:
+
+<div style={{ display: 'flex', justifyContent: 'center'}}>
+  <ListItemComponent>
+    <UsersAdd size="lg" />
+    <span>New User</span>
+  </ListItemComponent>
+</div>
