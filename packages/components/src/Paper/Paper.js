@@ -15,7 +15,7 @@ const useStyleSheet = createStyleSheet(
   (theme, { color, elevation }) => ({
     paper: {
       backgroundColor: detectColor(theme, color || 'neutral-tertiary'),
-      padding: theme.spacing(),
+      padding: theme.spacing(1),
       borderRadius: 5,
     },
     outlined: {

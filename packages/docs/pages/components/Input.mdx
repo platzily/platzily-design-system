@@ -1,0 +1,122 @@
+import { Input } from '../../components/styling/index';
+
+# Inputs
+
+Input fields let get the user  different type of data.
+
+
+<div style={{marginTop: 50, display: 'flex', alignItems:'center', flexDirection:'column', gap:'15px', justifyContent: 'center', padding: '15px', backgroundColor:'#F4F8FB', borderRadius:'5px'}}>
+  <Input placeholder="Hello Input"  />
+</div>
+
+------
+
+The component has type='text' by default but the user can change it using the attribute type and his prefer value.
+
+<div style={{ display: 'flex', alignItems:'center', flexDirection:'column', gap:'15px', justifyContent: 'center', padding: '15px'}}>
+  <Input placeholder="Type text by default"  />
+
+</div>
+
+```jsx
+import { Input } from '@platzily-ui/components';
+
+const InputComponent = () => {
+
+  return <Input />;
+};
+export default InputComponent;
+```
+
+ The user should provide width and height properties and his values by props, also can provide any input attribute of HTML.
+
+<div style={{ backgroundColor:'#F4F8FB', display: 'flex', alignItems:'center', flexDirection:'column', gap:'15px', justifyContent: 'center', padding: '15px'}}>
+  <Input placeholder="Example One" width={200} height={40} />
+  <Input placeholder="Example Two" width={180} height={35} />
+  <Input placeholder="Example Three" width={160} height={30} />
+</div>
+
+```jsx
+import { Button } from '@platzily-ui/components';
+import { Fragment } from 'react';
+
+const InputComponent = () => {
+  return (
+    <Fragment>
+      <Input width={200} height={40} /> // Example One
+      <Input width={180} height={35} /> // Example Two
+      <Input width={160} height={30} /> // Example Three
+    </Fragment>
+  );
+};
+export default InputComponent;
+```
+
+
+------
+
+## Type attribute
+
+Users can use all his different values in the type attribute like: date, checkbox, password, 
+
+<div style={{ backgroundColor:'#F4F8FB', display: 'flex', alignItems:'center', flexDirection:'column', gap:'15px', justifyContent: 'center', padding: '15px'}}>
+  <Input type="date" />
+  <Input type="checkbox" width={18} />
+  <Input placeholder="password" type="password" />
+</div>
+
+```jsx
+import { Input } from '@platzily-ui/components';
+import { Fragment } from 'react';
+
+const InputComponent = () => {
+  return (
+    <Fragment>
+      <Input type="date" />
+      <Input type="checkbox" width={18} />
+      <Input placeholder="password" type="password" /> />
+    </Fragment>
+  );
+  return ;
+};
+export default InputComponent;
+```
+
+
+----------
+## Styling
+
+The user can provide styles to the component using the createStyleSheet method.
+
+<div style={{ backgroundColor:'#F4F8FB', display: 'flex', alignItems:'center', flexDirection:'column', gap:'15px', justifyContent: 'center', padding: '15px'}}>
+  <Input placeholder="required *" required />
+</div>
+
+```jsx
+import { Input } from '@platzily-ui/components';
+import { createStyleSheet } from '@platzily-ui/styling';
+
+const useStyleSheet = createStyleSheet((theme) => ({
+  input: {
+    borderRadius: theme.spacing(),
+    padding: theme.spacing(2),
+    '&:invalid':{
+      borderColor: theme.palette.error.main,
+      '&::placeholder': {
+        color: theme.palette.error.main,
+      }
+    }
+  },
+}), { key: 'classNameStyle' });
+
+const InputComponent = (props) => {
+  const { classes } = useStyleSheet();
+
+  return <Input
+    className={classes.input}
+    required
+  />;
+};
+
+export default InputComponent;
+```
