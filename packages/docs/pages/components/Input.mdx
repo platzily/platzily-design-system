@@ -14,7 +14,7 @@ Input fields let get the user  different type of data.
 The component has type='text' by default but the user can change it using the attribute type and his prefer value.
 
 <div style={{ display: 'flex', alignItems:'center', flexDirection:'column', gap:'15px', justifyContent: 'center', padding: '15px'}}>
-  <Input placeholder="Dafault type"  />
+  <Input placeholder="Type text by default"  />
 
 </div>
 
@@ -28,11 +28,12 @@ const InputComponent = () => {
 export default InputComponent;
 ```
 
- The user also can provide principally the disabled and required attribute .
+ The user should provide width and height properties and his values by props, also can provide any input attribute of HTML.
 
- <div style={{ display: 'flex', alignItems:'center', flexDirection:'column', gap:'15px', justifyContent: 'center', padding: '15px'}}>
-  <Input placeholder="disabled" disabled />
-  <Input placeholder="*" required />
+<div style={{ backgroundColor:'#F4F8FB', display: 'flex', alignItems:'center', flexDirection:'column', gap:'15px', justifyContent: 'center', padding: '15px'}}>
+  <Input placeholder="Example One" width={200} height={40} />
+  <Input placeholder="Example Two" width={180} height={35} />
+  <Input placeholder="Example Three" width={160} height={30} />
 </div>
 
 ```jsx
@@ -42,8 +43,9 @@ import { Fragment } from 'react';
 const InputComponent = () => {
   return (
     <Fragment>
-      <Input placeholder="disabled" disabled />
-      <Input placeholder="required" required />
+      <Input width={200} height={40} /> // Example One
+      <Input width={180} height={35} /> // Example Two
+      <Input width={160} height={30} /> // Example Three
     </Fragment>
   );
 };
@@ -57,56 +59,37 @@ export default InputComponent;
 
 Users can use all his different values in the type attribute like: date, checkbox, password, 
 
-<div style={{ display: 'flex', alignItems:'center', flexDirection:'column', gap:'15px', justifyContent: 'center', padding: '15px'}}>
+<div style={{ backgroundColor:'#F4F8FB', display: 'flex', alignItems:'center', flexDirection:'column', gap:'15px', justifyContent: 'center', padding: '15px'}}>
   <Input type="date" />
-</div>
-
-```jsx
-import { Input } from '@platzily-ui/components';
-
-const InputComponent = () => {
-
-  return <Input type="date" />;
-};
-export default InputComponent;
-```
-
-<div style={{ display: 'flex', alignItems:'center', flexDirection:'column', gap:'15px', justifyContent: 'center', padding: '15px'}}>
-  <Input type="checkbox" />
-</div>
-
-```jsx
-import { Input } from '@platzily-ui/components';
-
-const InputComponent = () => {
-
-  return <Input type="checkbox" />;
-};
-
-export default InputComponent;
-```
-
-<div style={{ display: 'flex', alignItems:'center', flexDirection:'column', gap:'15px', justifyContent: 'center', padding: '15px'}}>
+  <Input type="checkbox" width={18} />
   <Input placeholder="password" type="password" />
 </div>
 
 ```jsx
 import { Input } from '@platzily-ui/components';
+import { Fragment } from 'react';
 
 const InputComponent = () => {
-
-  return <Input type="password" />;
+  return (
+    <Fragment>
+      <Input type="date" />
+      <Input type="checkbox" width={18} />
+      <Input placeholder="password" type="password" /> />
+    </Fragment>
+  );
+  return ;
 };
-
 export default InputComponent;
 ```
 
+
+----------
 ## Styling
 
 The user can provide styles to the component using the createStyleSheet method.
 
-<div style={{ display: 'flex', alignItems:'center', flexDirection:'column', gap:'15px', justifyContent: 'center', padding: '15px'}}>
-  <Input placeholder="Styled Input"  />
+<div style={{ backgroundColor:'#F4F8FB', display: 'flex', alignItems:'center', flexDirection:'column', gap:'15px', justifyContent: 'center', padding: '15px'}}>
+  <Input placeholder="required *" required />
 </div>
 
 ```jsx
@@ -114,9 +97,15 @@ import { Input } from '@platzily-ui/components';
 import { createStyleSheet } from '@platzily-ui/styling';
 
 const useStyleSheet = createStyleSheet((theme) => ({
-  inputStyle: {
-    backgroundColor: theme.palette.secondary.main,
+  input: {
+    borderRadius: theme.spacing(),
     padding: theme.spacing(2),
+    '&:invalid':{
+      borderColor: theme.palette.error.main,
+      '&::placeholder': {
+        color: theme.palette.error.main,
+      }
+    }
   },
 }), { key: 'classNameStyle' });
 
@@ -124,7 +113,8 @@ const InputComponent = (props) => {
   const { classes } = useStyleSheet();
 
   return <Input
-    className={classes.inputStyle}
+    className={classes.input}
+    required
   />;
 };
 

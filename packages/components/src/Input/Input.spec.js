@@ -1,38 +1,37 @@
-import { getByTestId, render } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { ThemeProvider, createTheme } from '@platzily-ui/styling';
 import Input from './Input';
 
 describe('@Components/Input', () => {
-  it('Given the Input Component, when the props provide an object within the styles attribute then the component will take those styles ', () => {
+  it('Given the Input Component, when the props provide a width and his value, then the component will take those styles', () => {
     // arrange
     const theme = createTheme();
     const { getByRole } = render(
       <ThemeProvider theme={theme}>
-        <Input role="banner" style={{ color: theme.palette.secondary.main }} />
+        <Input role="textbox" width={150} />
       </ThemeProvider>,
     );
 
     // act
-    const InputTestedText = getByRole('banner');
+    const InputTestedText = getByRole('textbox');
     // assert
     expect(InputTestedText).toBeDefined();
-    expect(InputTestedText).toHaveStyle(`color:#97c343`);
+    expect(InputTestedText).toHaveStyle(`width:150px`);
   });
 
   it('Given the Input Component, when the props provide type or required attributes then the component will take those props', () => {
     // arrange
     const { getByRole } = render(
       <ThemeProvider theme={createTheme()}>
-        <Input role="form" type={'date'} required />
+        <Input role="textbox" required />
       </ThemeProvider>,
     );
 
     // act
-    const InputTestedText = getByRole('form');
+    const InputTestedText = getByRole('textbox');
 
     // assert
     expect(InputTestedText).toBeDefined();
-    expect(InputTestedText).toHaveProperty('type');
     expect(InputTestedText).toHaveProperty('required');
   });
 

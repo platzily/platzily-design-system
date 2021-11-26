@@ -2,21 +2,29 @@ import { Input } from '@platzily-ui/components';
 import { createStyleSheet } from '@platzily-ui/styling';
 
 const useStyleSheet = createStyleSheet((theme) => ({
-  inputStyle: {
+  input: {
+    borderRadius: theme.spacing(),
     padding: theme.spacing(2),
+    '&:invalid':{
+      borderColor: theme.palette.error.main,
+      '&::placeholder': {
+        color: theme.palette.error.main,
+      }
+    }
   },
-}), { key: 'padding' });
+}), { key: 'DocsInput' });
 
 const InputComponent = (props) => {
   const { classes } = useStyleSheet();
-  const { required, type, placeholder, disabled, otherProps } = props;
+  const { type, placeholder, disabled, width, required, ...otherProps } = props;
 
   return <Input
-    className={classes.inputStyle}
+    className={classes.input}
     type={type}
-    required={required}
     placeholder={placeholder}
     disabled={disabled}
+    width={width}
+    required={required}
     {...otherProps}
   />;
 };

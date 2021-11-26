@@ -58,7 +58,6 @@
     }
   },
   "dependencies": {
-    "@lerna/bootstrap": "^4.0.0",
     "@platzily-ui/styling": "0.1.4",
     "prop-types": "15.7.2"
   },
