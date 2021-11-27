@@ -20,6 +20,23 @@ describe('@Components/Footer', () => {
     expect(FooterTestedText).toHaveStyle(`background-color:#97c343`);
   });
 
+  it('Given the Footer Component, when the props provide height prop with a number value then the component will take the value of that height. ', () => {
+    // arrange
+    const theme = createTheme();
+    const { getByRole } = render(
+      <ThemeProvider theme={theme}>
+        <Footer role="banner" height={120} />
+      </ThemeProvider>,
+    );
+
+    // act
+    const FooterTestedText = getByRole('banner');
+
+    // assert
+    expect(FooterTestedText).toBeDefined();
+    expect(FooterTestedText).toHaveStyle(`height: 120px`);
+  });
+
   it('Given the Footer Component, when the user provide children inside the component then the component will take it', () => {
     // arrange
     const { getByRole } = render(

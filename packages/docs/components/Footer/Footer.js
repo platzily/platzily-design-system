@@ -15,11 +15,12 @@ const useStyleSheet = createStyleSheet(
 );
 
 export default function FooterComponent() {
-
   const { classes } = useStyleSheet();
 
   return (
-    <Footer className={classes.footer} >
+    <Footer
+      className={classes.footer}
+    >
       © Platzily-UI 2021. All Rights Reserved.
     </Footer>
   );
