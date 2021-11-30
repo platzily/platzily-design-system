@@ -81,8 +81,7 @@ module.exports = {
     'react/no-invalid-html-attribute': 'off',
     'react/no-unused-class-component-methods': 'off',
     'jsx-a11y/alt-text': 'off',
-    'react/function-component-definition': 'off',
-    'no-restricted-exports': 'off'
+    'react/function-component-definition': 'off'
   },
   settings: {
     'import/resolver': {
@@ -106,5 +105,11 @@ module.exports = {
         'testing-library/no-node-access': 'off'
       }
     },
+    {
+      files: ['./packages/**/src/**/index.js', './packages/**/src/**/index.d.ts'],
+      'rules': {
+        'no-restricted-exports': 'off'
+      }
+    }
   ]
 };
