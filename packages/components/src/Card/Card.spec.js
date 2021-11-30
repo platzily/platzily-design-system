@@ -13,4 +13,15 @@ describe('@components/card', () => {
     const card = getByText(/Hello World/i);
     expect(card).toBeDefined();
   });
+
+  it('Given a normal call It should render the Header', () => {
+    const { getByText } = render(
+      <ThemeProvider theme={createTheme()}>
+        <Card header="Header">Hello World</Card>
+      </ThemeProvider>,
+    );
+
+    const card = getByText(/Header/i);
+    expect(card).toBeDefined();
+  });
 });

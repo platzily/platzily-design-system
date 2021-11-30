@@ -2,7 +2,7 @@ import Card from '../../components/Card/Card';
 
 # Card
 
-Is a container to have a header and a content ando show detail information about a specific element. You can use the [paper props](/platzily-ui/components/Paper) in the cards
+It's a container that have a header and a content, it shows detailed information about an specific element. You can use the [paper props](/platzily-ui/components/Paper) in the cards
 
 <div style={{ width: 320 }}>
   <Card />
@@ -10,7 +10,7 @@ Is a container to have a header and a content ando show detail information about
 
 ## Header
 
-The header adding with a prop could is string, number or component.
+The Header receives as prop a string, number or component
 
 Example:
 
@@ -29,9 +29,9 @@ const useStyleSheet = createStyleSheet(() => ({
   },
 }));
 
-const header = (textCenter) => {
+const Header = (props) => {
   return (
-    <Text variant="title3" className={textCenter}>
+    <Text variant="title3" {...props}>
       Header
     </Text>
   );
@@ -45,7 +45,7 @@ const CardComponent = (props) => {
     <ThemeProvider theme={theme}>
       <Card
         {...props}
-        header={header(classes.textCenter)}
+        header={<Header className={classes.textCenter} />}
         className={classes.root}
         variant="outlined"
       >

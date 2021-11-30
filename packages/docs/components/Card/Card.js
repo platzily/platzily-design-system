@@ -12,9 +12,9 @@ const useStyleSheet = createStyleSheet(() => ({
   },
 }));
 
-const header = (textCenter) => {
+const Header = (props) => {
   return (
-    <Text variant="title3" className={textCenter}>
+    <Text variant="title3" {...props}>
       Header
     </Text>
   );
@@ -28,7 +28,7 @@ const CardComponent = (props) => {
     <ThemeProvider theme={theme}>
       <Card
         {...props}
-        header={header(classes.textCenter)}
+        header={<Header className={classes.textCenter} />}
         className={classes.root}
         variant="outlined"
       >
