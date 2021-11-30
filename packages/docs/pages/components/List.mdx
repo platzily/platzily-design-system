@@ -11,7 +11,7 @@ It the element into a list and could have some interactions and states, could co
     <span>Icon + Text</span>
   </ListItemComponent>
 
-  <ListItemComponent status="active">
+  <ListItemComponent active>
     <Dashboard size="lg" />
     <span>Active</span>
   </ListItemComponent>
@@ -91,7 +91,7 @@ Result:
 
 ### Active Mode
 
-Add the status prop with the value `active` in the ListItem Component
+The active prop is a boolean attribute in the ListItem Component
 
 Example:
 
@@ -102,7 +102,7 @@ import { ListItem } from '@platzily-ui/components';
 const myComponent = () => {
   return(
     <List>
-      <ListItem status="active">
+      <ListItem active>
         <UsersAdd size="lg" />
         <span>New User</span>
       </ListItem>
@@ -113,7 +113,7 @@ const myComponent = () => {
 Result:
 
 <div style={{ display: 'flex', justifyContent: 'center'}}>
-  <ListItemComponent status="active">
+  <ListItemComponent active>
     <UsersAdd size="lg" />
     <span>New User</span>
   </ListItemComponent>

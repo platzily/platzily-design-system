@@ -32,24 +32,29 @@ const useStyleSheet = createStyleSheet((theme) => {
 
 const ListItem = forwardRef(function ListItem(props, ref) {
   const { classes, cx } = useStyleSheet(props);
-  const { className, status, ...otherProps } = props;
+  const { className, active, ...otherProps } = props;
   return (
     <button
       type="button"
       {...otherProps}
       ref={ref}
-      className={cx(classes.root, classes[status], className)}
+      className={cx({
+        [classes.root]: true,
+        [classes.active]: active,
+        [classes.noActive]: !active,
+        [className]: !!className,
+      })}
     />
   );
 });
 
 ListItem.propTypes = {
+  active: PropTypes.bool,
   className: PropTypes.string,
-  status: PropTypes.string,
 };
 
 ListItem.defaultProps = {
-  status: 'noActive',
+  active: false,
 };
 
 export default ListItem;
