@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import { ThemeProvider } from '@platzily-ui/styling';
 
 import DefaultStyledBoxComponent from './DefaultStyledBox';
@@ -6,56 +7,48 @@ import ColorComponent from './ColorComponent';
 
 import HeaderComponent from '../Header/Header';
 
-import { defaultTheme, customTheme } from './theme';
+import { customTheme } from './theme';
 
 export function DefaultStyledBox({ color }) {
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <DefaultStyledBoxComponent color={color} />
-    </ThemeProvider>
+    <DefaultStyledBoxComponent color={color} />
   );
 }
 
 export function UseThemeStyledBox({ color }) {
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <UseThemeStyledBoxComponent color={color} />
-    </ThemeProvider>
+    <UseThemeStyledBoxComponent color={color} />
   );
 }
 
 export function CustomThemeStyledBox() {
   return (
-    <ThemeProvider theme={customTheme}>
-      <DefaultStyledBoxComponent />
-    </ThemeProvider>
+    <DefaultStyledBoxComponent />
   );
 }
 
 export function CombinedThemesStyledBox() {
   return (
-    <ThemeProvider theme={defaultTheme}>
+    <Fragment>
       <DefaultStyledBoxComponent />
       <br />
       <ThemeProvider theme={customTheme}>
         <DefaultStyledBoxComponent />
       </ThemeProvider>
-    </ThemeProvider>
+    </Fragment>
   );
 }
 
 export function Color({ color, colorType }) {
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <ColorComponent color={color} colorType={colorType} />
-    </ThemeProvider>
+    <ColorComponent color={color} colorType={colorType} />
   );
 }
 
 export function Header() {
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <HeaderComponent  />
-    </ThemeProvider>
+    <HeaderComponent  />
   );
 }
+
+export { default as UseWindowDimensionsStyledBox } from './UseWindowDimensionsStyledBox';

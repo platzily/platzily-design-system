@@ -11,3 +11,5 @@ export { default as useTheme } from './useTheme';
 export * from './useTheme';
 
 export * from './colorManipulator';
+
+export { default as useWindowDimensions } from './useWindowDimensions';

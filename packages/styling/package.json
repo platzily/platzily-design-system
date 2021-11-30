@@ -1,6 +1,6 @@
 {
   "name": "@platzily-ui/styling",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "private": false,
   "description": "Platzily UI styling API",
   "main": "./dist/index",
@@ -65,7 +65,7 @@
   "dependencies": {
     "@emotion/css": "11.5.0",
     "@platzily-ui/utils": "0.1.0",
-    "csstype": "3.0.9",
+    "csstype": "3.0.10",
     "prop-types": "15.7.2"
   },
   "publishConfig": {
