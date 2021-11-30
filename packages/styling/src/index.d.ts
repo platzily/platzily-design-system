@@ -13,3 +13,4 @@ export * from './useTheme';
 export * from './colorManipulator';
 
 export { default as useOutsideClick } from './useOutsideClick';
+export { default as useWindowDimensions } from './useWindowDimensions';
