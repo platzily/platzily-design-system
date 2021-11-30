@@ -2463,6 +2463,10 @@
   dependencies:
     "@octokit/openapi-types" "^11.2.0"
 
+"@platzily-ui/utils@0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@platzily-ui/utils/-/utils-0.1.0.tgz#3a11d01486aaddc7d03261cfd15b22ecf12240d0"
+  integrity sha512-dOXpNW23fM/AJ9ghlepzGTa7GRuYdc+QqgEIVUY4giDQ+HDeEQeO/4KDZL+0yz6chSOBXQg5He14uYpEI6WZUw==
 "@platzily-ui/components@0.1.0":
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/@platzily-ui/components/-/components-0.1.0.tgz#97923473fc2b930379582c2b78c292fbc5e686a0"
