@@ -7,3 +7,5 @@ export { default as ThemeProvider } from './ThemeProvider';
 export { default as useTheme } from './useTheme';
 
 export * from './colorManipulator';
+
+export { default as useOutsideClick } from './useOutsideClick';
