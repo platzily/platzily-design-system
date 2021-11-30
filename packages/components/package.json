@@ -1,6 +1,6 @@
 {
   "name": "@platzily-ui/components",
-  "version": "0.1.0",
+  "version": "0.1.5",
   "private": false,
   "description": "Platzily UI components API",
   "main": "./dist/index",
@@ -59,8 +59,8 @@
     }
   },
   "dependencies": {
-    "@platzily-ui/styling": "0.1.4",
     "@platzily-ui/utils": "0.1.5",
+    "@platzily-ui/styling": "0.1.5",
     "prop-types": "15.7.2"
   },
   "publishConfig": {
