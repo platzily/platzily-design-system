@@ -3,12 +3,17 @@ import { Dashboard, Edit, Close, UsersAdd } from '@platzily-ui/icons';
 
 ## List item
 
-It the element into a list and could have some interactions and states, could contain images, icons and text. 
+It the element into a list and could have some interactions and states, could contain images, icons and text.
 
-<div style={{ display: 'grid', gridTemplateColumns: 'auto auto auto auto', justifyContent: 'center' }}>
+<div style={{ display: 'grid', gridTemplateColumns: 'auto auto auto auto auto', justifyContent: 'center' }}>
   <ListItemComponent>
     <Dashboard size="lg" />
     <span>Icon + Text</span>
+  </ListItemComponent>
+
+  <ListItemComponent status="active">
+    <Dashboard size="lg" />
+    <span>Active</span>
   </ListItemComponent>
 
   <ListItemComponent disabled>
@@ -48,6 +53,67 @@ Result:
 
 <div style={{ display: 'flex', justifyContent: 'center'}}>
   <ListItemComponent>
+    <UsersAdd size="lg" />
+    <span>New User</span>
+  </ListItemComponent>
+</div>
+
+### Disable
+
+Add the `disabled` atribute in ListItem Component
+
+Example:
+
+```jsx
+import { UsersAdd } from '@platzily-ui/icons';
+import { ListItem } from '@platzily-ui/components';
+
+const myComponent = () => {
+  return(
+    <List>
+      <ListItem disabled>
+        <UsersAdd size="lg" />
+        <span>New User</span>
+      </ListItem>
+    </List>
+  )
+};
+```
+
+Result:
+
+<div style={{ display: 'flex', justifyContent: 'center'}}>
+  <ListItemComponent disabled>
+    <UsersAdd size="lg" />
+    <span>New User</span>
+  </ListItemComponent>
+</div>
+
+### Active Mode
+
+Add the status prop with the value `active` in the ListItem Component
+
+Example:
+
+```jsx
+import { UsersAdd } from '@platzily-ui/icons';
+import { ListItem } from '@platzily-ui/components';
+
+const myComponent = () => {
+  return(
+    <List>
+      <ListItem status="active">
+        <UsersAdd size="lg" />
+        <span>New User</span>
+      </ListItem>
+    </List>
+  )
+};
+```
+Result:
+
+<div style={{ display: 'flex', justifyContent: 'center'}}>
+  <ListItemComponent status="active">
     <UsersAdd size="lg" />
     <span>New User</span>
   </ListItemComponent>
