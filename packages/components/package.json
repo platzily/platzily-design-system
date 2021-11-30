@@ -50,7 +50,8 @@
   },
   "peerDependencies": {
     "@types/react": ">=16.8.0",
-    "react": ">=16.8.0"
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
   },
   "peerDependenciesMeta": {
     "@types/react": {
@@ -59,6 +60,7 @@
   },
   "dependencies": {
     "@platzily-ui/styling": "0.1.4",
+    "@platzily-ui/utils": "0.1.5",
     "prop-types": "15.7.2"
   },
   "publishConfig": {
