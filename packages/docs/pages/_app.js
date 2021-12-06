@@ -1,7 +1,10 @@
 import 'nextra-theme-docs/style.css';
+import { ThemeProvider, createTheme } from '@platzily-ui/styling';
 
 export default function DocsApp({ Component, pageProps }) {
   return (
-    <Component {...pageProps} />
+    <ThemeProvider theme={createTheme()}>
+      <Component {...pageProps} />
+    </ThemeProvider>
   );
 }

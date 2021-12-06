@@ -4,3 +4,4 @@ export { default as Header } from './Header';
 export { default as Button } from './Button';
 export { default as SvgIcon } from './SvgIcon';
 export { default as ListItem } from './ListItem';
+export { default as Portal } from './Portal';
