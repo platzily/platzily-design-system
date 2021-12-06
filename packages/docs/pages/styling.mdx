@@ -1,4 +1,10 @@
-import { DefaultStyledBox, UseThemeStyledBox, CustomThemeStyledBox, CombinedThemesStyledBox } from '../components/styling/index'
+import {
+  DefaultStyledBox,
+  UseThemeStyledBox,
+  CustomThemeStyledBox,
+  CombinedThemesStyledBox,
+  UseWindowDimensionsStyledBox
+} from '../components/styling/index'
 import { Warning } from '../components/format/index'
 
 # Platzily UI Styling API
@@ -413,3 +419,38 @@ Note how the outer theme which is the theme passed to the higher ThemeProvider i
 The code above will result in this:
 
 <CombinedThemesStyledBox/>
+
+## useOutsideClick hook
+
+This hook receive a config object with two keys:
+
+```json
+{
+  "ref": "A react component ref, this is the component you want to execute an action when clicked outside it.",
+  "callback": "A function to be called when the outside click is done."
+}
+```
+## useWindowDimensions hook
+
+This hook can be used to determine the viewport width and height.
+
+```jsx
+import { ThemeProvider, useWindowDimensions } from '@platzily-ui/styling';
+import App from './App';
+import theme from './theme';
+
+export default function Root() {
+   const { width, height } = useWindowDimensions();
+
+  return (
+    <div>
+      <div>width: {width}px</div>
+      <div>height: {height}px</div>
+    </div>
+  );
+}
+```
+
+Change your window size for the values to change.
+
+<UseWindowDimensionsStyledBox/>
