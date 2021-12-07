@@ -1,0 +1,58 @@
+import Card from '../../components/Card/Card';
+
+# Card
+
+It's a container that have a header and a content, it shows detailed information about an specific element. You can use the [paper props](/platzily-ui/components/Paper) in the cards
+
+<div style={{ width: 320 }}>
+  <Card />
+</div>
+
+## Header
+
+The Header receives as prop a string, number or component
+
+Example:
+
+```jsx
+import { Card, Text } from '@platzily-ui/components';
+import { createTheme, ThemeProvider, createStyleSheet } from '@platzily-ui/styling';
+
+const useStyleSheet = createStyleSheet(() => ({
+  root: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  textCenter: {
+    textAlign: 'center',
+  },
+}));
+
+const Header = (props) => {
+  return (
+    <Text variant="title3" {...props}>
+      Header
+    </Text>
+  );
+};
+
+const CardComponent = (props) => {
+  const theme = createTheme();
+  const { classes } = useStyleSheet();
+
+  return (
+    <ThemeProvider theme={theme}>
+      <Card
+        {...props}
+        header={<Header className={classes.textCenter} />}
+        className={classes.root}
+        variant="outlined"
+      >
+        Content
+      </Card>
+    </ThemeProvider>
+  );
+};
+```
+<Card />

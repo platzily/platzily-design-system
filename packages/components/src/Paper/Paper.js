@@ -12,16 +12,16 @@ const detectColor = (theme, color) => {
 };
 
 const useStyleSheet = createStyleSheet(
-  (theme, { color, elevation }) => ({
+  (theme, { padding, color, elevation }) => ({
     paper: {
       backgroundColor: detectColor(theme, color || 'neutral-tertiary'),
-      padding: theme.spacing(),
-      borderRadius: 5,
+      padding: padding || theme.spacing(),
+      borderRadius: theme.spacing(),
     },
     outlined: {
       border: 1,
       borderStyle: 'solid',
-      borderColor: theme.palette.neutral.dark,
+      borderColor: theme.palette.neutral.secondary,
     },
     boxShadow: {
       boxShadow: theme.elevations[elevation],
@@ -31,7 +31,7 @@ const useStyleSheet = createStyleSheet(
 );
 
 const Paper = forwardRef(function Paper(props, ref) {
-  const { elevation, variant, className, ...otherProps } = props;
+  const { padding, elevation, variant, className, ...otherProps } = props;
   const { classes, cx } = useStyleSheet(props);
   return (
     <div
@@ -50,6 +50,7 @@ const Paper = forwardRef(function Paper(props, ref) {
 Paper.propTypes = {
   className: PropTypes.string,
   elevation: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6, 7]),
+  padding: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   variant: PropTypes.string,
 };
 
