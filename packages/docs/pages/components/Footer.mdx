@@ -1,0 +1,62 @@
+# Footer Component
+
+import { Footer } from '../../components/styling/index';
+
+This component will provide to the user the Footer wrapper.
+
+<div style={{ width: '100%', backgroundColor: '#edf2f7', margin: '50px 0 50px 0', padding: '10px' }}>
+  <Footer />
+</div>
+
+It will be possible to provide 2 style by props. These will be bgColor and height.
+
+```jsx
+import { Footer } from '@platzily-ui/components';
+import { useTheme } from '@platzily-ui/styling';
+
+
+export default function FooterComponent() {
+  const theme = useTheme();
+
+  return (
+    <Footer
+      bgColor={theme.palette.nautral.secondary}
+      height={180}
+    >
+      © Platzily 2021. All Rights Reserved.
+    </Footer>
+  );
+}
+```
+
+The best way to create styles is using createStyleSheet method.
+
+```jsx
+import { Footer } from '@platzily-ui/components';
+import { createStyleSheet } from '@platzily-ui/styling';
+
+
+const useStyleSheet = createStyleSheet(
+  (theme) => ({
+    footerStylesObject: {
+      backgroundColor: theme.palette.neutral.light,
+      height: 60,
+      padding: 15,
+      color: theme.palette.neutral.secondary,
+    },
+  }),
+  { key: 'footerStyle' },
+);
+
+export default function ComponentFooter() {
+  const { classes, cx } = useStyleSheet(props);
+
+  return (
+    <Footer className={cx(
+      classes.footerStylesObject,
+      className,
+    )} >
+      © Platzily 2021. All Rights Reserved.
+    </Footer>);
+}
+```

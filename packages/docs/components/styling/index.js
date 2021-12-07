@@ -6,6 +6,7 @@ import UseThemeStyledBoxComponent from './UseThemeStyledBox';
 import ColorComponent from './ColorComponent';
 
 import HeaderComponent from '../Header/Header';
+import FooterComponent from '../Footer/Footer';
 
 import { customTheme } from './theme';
 
@@ -51,4 +52,13 @@ export function Header() {
   );
 }
 
+export function Footer() {
+  return (
+    <ThemeProvider theme={defaultTheme}>
+      <FooterComponent  />
+    </ThemeProvider>
+  );
+}
+
 export { default as UseWindowDimensionsStyledBox } from './UseWindowDimensionsStyledBox';
+

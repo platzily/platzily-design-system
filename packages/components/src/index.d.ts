@@ -13,6 +13,9 @@ export { default as Button } from './Button';
 export * from './SvgIcon';
 export { default as SvgIcon } from './SvgIcon';
 
+export * from './Footer';
+export { default as Footer } from './Footer';
+
 export * from './Card';
 export { default as Card } from './Card';
 
@@ -21,4 +24,3 @@ export { default as ListItem } from './ListItem';
 
 export * from './Portal';
 export { default as Portal } from './Portal';
-
